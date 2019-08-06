@@ -2,6 +2,8 @@
 
 ## Agenda
 
+sign in to the **Azure Portal** (<http://portal.azure.com>)
+
 Please note: This is a rough agenda, and the schedule is subject to change pending class activities, breaks, and interactions.
 
 - ADF - Data ingestion lab
