@@ -1,7 +1,7 @@
 # Analytics-Airlift
 
 ## Agenda
-
+<a href="http://stackoverflow.com" target="_blank">Go</a>
 Please note: This is a rough agenda, and the schedule is subject to change pending class activities, breaks, and interactions.
 
 - ADF - Data ingestion lab
