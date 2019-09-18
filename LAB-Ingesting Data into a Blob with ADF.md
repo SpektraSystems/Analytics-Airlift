@@ -29,35 +29,40 @@ In this lab we will:<br/>
 ## Scenario
 ### Part 1 – Create an Azure Data Factory (v2)
 We are going to use the portal to create the Azure Data Factory.
-1.	Go to Azure Portal- https://portal.azure.com.
-2.	Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**.
-
+1.	Go to Azure Portal- https://portal.azure.com.<br/>
+2.	Select **New** on the left menu, select **Analytics**, and then select **Data Factory**.<br/>
+    <img src="images/ex01.jpg"/><br/>
 3.	On the New data factory page, enter **ad-flab-adf** for Name.
-4.	Make sure you select **Version** as **V2 (Pre-view)**
+4.	Make sure you select **Version** as **V2 (Pre-view)**<br/>
+   <img src="images/ex03.jpg"/><br/>
 
 ``
 Note: The name of the Azure data factory must be globally unique. Please modify the name if the Name validation fails. 
 ``
 
-5.	After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the **Azure Data Factory** user interface (UI) application on a separate tab.
-
+5.	After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the **Azure Data Factory** user interface (UI) application on a separate tab.<br/>
+   <img src="images/ex02.jpg"/><br/>
 ### Part 2 – Connect ADF to a code repository to begin using the ADF GUI (Optional)
 One option to be able to sync our code is to connect ADF to a code repository. This section walks through the steps to connect ADF to a Visual Studio Team Services Git project, so we can save our code for later re-use. Note that this is not required but a recommended best practice.
 
 1.	Navigate to the **Azure portal** within your web browser and navigate to https://portal.azure.com
 2.	Open the Azure Data Factory blade **adflab-adf**.
-3.	In the Overview Blade, Click on **Author and Monitor**
-4.	Click the **Set up Code Repository** button to begin connecting this Azure data factory to a code repository.
-5.	You can either create a new VSTS account for this lab or use an existing one. You can create a new one - http://app.vsaex.visualstudio.com/project/profile/account and configure it in ADF GUI under repository settings. You need to create/ select a Project under this Account. 
+3.	In the Overview Blade, Click on **Author and Monitor**<br/>
+   <img src="images/ex03.jpg"/><br/>
+4.	Click the **Set up Code Repository** button to begin connecting this Azure data factory to a code repository.<br/>
+   <img src="images/ex3.jpg"/><br/>
+5.	You can either create a new VSTS account for this lab or use an existing one. You can create a new one - http://app.vsaex.visualstudio.com/project/profile/account and configure it in ADF GUI under repository settings. You need to create/ select a Project under this Account.<br/>
+   <img src="images/ex04.jpg"/><br/>
+6.	The Repository Settings pane will appear on the right.<br/>
+   <img src="images/ex05.jpg"/><br/>
+7.	Select **Use Exiisting** in select working branch page and click the **Save** button when you have verified your settings.
 
-6.	The Repository Settings pane will appear on the right.  
-
-7.	Click the **Finished** button when you have verified your settings.
 
 ### Part 3 – Setting up the Connections in the ADF GUI (Azure SQL Database -> Blob)
 We now want to use the GUI to create another copy activity in the same pipeline to copy the Data from Azure SQL DB to Azure blob storage to be ready for transformation along with the earlier CSV file. Our first step is setting up the connections and linked services need for the source and destination.
 
 1.	In the Left Menu click the **Connections** menu item.
+   <img src="images/ex02.jpg"/><br/>
 2.	Click the **+New** button under **Linked** Services.
 3.	In the right pane you should now see the list of possible **Linked** Services. 
 4.	Click on the** Azure SQL Database** tile.
