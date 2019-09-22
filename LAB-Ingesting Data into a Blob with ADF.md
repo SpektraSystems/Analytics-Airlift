@@ -62,9 +62,12 @@ One option to be able to sync our code is to connect ADF to a code repository. T
 We now want to use the GUI to create another copy activity in the same pipeline to copy the Data from Azure SQL DB to Azure blob storage to be ready for transformation along with the earlier CSV file. Our first step is setting up the connections and linked services need for the source and destination.
 
 1.	In the Left Menu click the **Connections** menu item.
-2.	Click the **+New** button under **Linked** Services.
-3.	In the right pane you should now see the list of possible **Linked** Services. 
-4.	Click on the** Azure SQL Database** tile.
+2.	In the right pane you need to **Select** working branch as **Master**.<br/>
+   <img src="images/ex07.jpg"/><br/>
+3.	Click the **+New** button under **Linked** Services.<br/>
+   <img src="images/ex08.jpg"/><br/>
+4.	Click on the **Azure SQL Database** tile.
+   <img src="images/ex13.jpg"/><br/>
 5.	Click **Continue**.
 6.	In the right pane you should see the properties to configure the **Azure SQL Database** account.We will name this linked service AzureSqlData-base-Source and using the Default runtime. Use the following  
  
@@ -74,27 +77,32 @@ We now want to use the GUI to create another copy activity in the same pipeline 
   * User name -> **lab_user**
   * Password -> **P@ssw0rd**
 
-7.	Click the **Test Connection** to verify settings are entered correctly.
-8.	Click **Save**.
+7.	Click the **Test Connection** to verify settings are entered correctly.<br/>
+   <img src="images/ex09.jpg"/><br/>
+8.	Click **Finish**.
 
 ### Part 4 – Setting up the Copy Activity in the ADF GUI (Azure SQL Database -> Blob)
 We now want to use the GUI to create a Copy Activity in the pipeline to move the files from the Azure SQL Database as source to our Azure storage destination.
 
-1.	Click the **CopyPipeline** in the left menu to return to the pipeline GUI.
-2.	In the **Pipeline GUI**, drag the Copy activity (under DataFlow) to the empty pane above General.
-3.	Rename the activity to **AzureSQL-toAzureBlob**.
+1.	Click the **Pipeline** in the left menu and then click the **+** sign for adding the pipepline.
+2.	In the **Pipeline GUI**, drag the Copy activity (under Move & Transform) to the empty pane above General.
+3.	Rename the activity to **AzureSQL-toAzureBlob**.<br/>
+   <img src="images/ex11.jpg"/><br/>
 4.	Click **Save**.
 5.	Click the **Source** Tab in the **Copy Activity GUI**.
-6.	Click the **+New** button next to Source **Dataset**.
-7.	You should now see the list of source **dataset** connectors. 
+6.	Click the **+New** button next to Source **Dataset**.<br/>
+7.	You should now see the list of source **dataset** connectors.
 8.	Choose the **Azure SQL dataset** and click **Finish**.
-9.	You should now add the connection property information.
-10.	Name this **datasetAzureSqlTable** 
-11.	Select Table -> **SalesLT.Customer**
-12.	Click **Preview Data** to preview the first several data rows.
-13.	Click on **CopyPipeline** and then click **Az-ureSQLtoAzureBlob** Activity.
+   <img src="images/ex13.jpg"/><br/>
+9.	You should now set the connection property information as following.
 
-14.	Select **Source -> Use Query -> Query**
+   *	Name this **datasetAzureSqlTable**<br/>
+   *	Select Table -> **SalesLT.Customer**<br/>
+   *	Click **Preview Data** to preview the first several data rows.<br/>
+   <img src="images/ex14.jpg"/><br/>
+10. Click on **Finish**.
+11. Click on **CopyPipeline** and then click **AzureSQLtoAzureBlob** Activity.
+12.	Select **Source -> Use Query -> Query**
 
 ``
 SELECT CustomerID, CompanyName, SalesPerson, ModifiedDate 
@@ -103,45 +111,56 @@ FROM [SalesLT].[Customer]
 
 ``
 Note: This Query may change based on your table selection. 
-``
-
-15.	Click on **Preview data** to ensure the query works.
-16.	Click back on the **CopyPipeline**.
-17.	Click the **AzureSQLtoAzureBlob** copy activity.
-18.	Click the **Sink** Tab in the Copy Activity GUI.
-19.	Click the **+New** button next to **Source Dataset**.
-20.	You should now see the list of sink dataset connectors. 
-21.	Choose the **Azure Blob storage** dataset and click ****Finish**.
-22.	Name the dataset as ****datasetBlobfromSQL**
-23.	Fill out the following information: **Linked Service -> AzStorage-Staging, File Path -> Click**. The Browse button and drill down to the **inputsql** container.
-
+``<br/>
+   <img src="images/ex16.jpg"/><br/>
+13.	Click on **Preview data** to ensure the query works.<br/>
+14.	Click back on the **CopyPipeline**.<br/>
+15.	Click the **AzureSQLtoAzureBlob** copy activity.<br/>
+16.	Click the **Sink** Tab in the Copy Activity GUI.<br/>
+17.	Click the **+New** button next to **Source Dataset**.<br/>
+18.	You should now see the list of sink dataset connectors.<br/>
+19.	Choose the **Azure Blob storage** dataset and click **Finish**.<br/>
+   <img src="images/ex17.jpg"/><br/>
+20. Select the format as **DelimitedText** and click on **Conitnue**.<br/>
+   <img src="images/ex18.jpg"/><br/>
+20.	Name the dataset as **datasetBlobfromSQL**
+21. Drop down for Linked Service and Click on **+New**.<br/>
+   <img src="images/ex19.jpg"/><br/>
+22. Fill the instructions as following:<br/>
+   <img src="images/ex20.jpg"/><br/>
+23. **Test Connection** and Click the **Finish** button.   
+24. Set the properties. Click browse button and drill down to the **inputsql** container.<br/>
+   <img src="images/ex22.jpg"/><br/>
 ``
 Note: Make sure **inputsql** container exists or else create one first. 
 ``
 
-24.	Save the **dataset**
-25.	Navigate to the **CopyPipeline**
-26.	Click the **Test Run** icon at the top menu to test and run our copy activity.
-27.	Final **CopyPipeline** looks like this
+22.	Click the **Finish** button.
+23.	Navigate to the **CopyPipeline**
+24.	**Save** the changes. Click the **Debug** icon at the top menu to test and run our copy activity.<br/>
+   <img src="images/ex24.jpg"/><br/>
 
 ### Part 5 – Using Parameters and Triggers (scheduling) in ADF GUI
 You can define parameters at the pipeline level and pass arguments while you're invoking the pipeline on-demand or from a trigger. Activities can consume the arguments that are passed to the pipeline. Using parameters, you can build more flexible pipelines. 
 And triggers can be used to execute the pipelines on a schedule or on-demand.
 
-1.	Navigate to **CopyPipeline -> Parameters**. Add new parameter. 
-2.	Name it as **filename**, let the **Value** be empty.
+1.	Navigate to **CopyPipeline -> Parameters**. Add new parameter.
+2.	Name it as **filename**, let the **Value** be empty.<br/>
+   <img src="images/ex24.jpg"/><br/>
 3.	Click **Save**
-4.	Navigate to **datasetBlobfromSQL -> Parameters -> File Name**, and set the value as **@pipeline().parameters.filename**
-5.	Click on **Connection** tab to verify the parameters
-6.	Navigate to **datasetBlob -> Parameters -> File Name**, and set the value as **@pipeline().parameters.filename**
-7.	Click on **Connection** tab to verify the parameters
-8.	Navigate to the **CopyPipeline**, do a Test Run. 
-9.	It will ask for an input parameter. Enter appropriate name and this will be used as the file name in sink.
-10.	Click on **Sync** (and **Publish**). This will write the changes to Master.
-11.	Click on **CopyPipeline -> Triggers -> Add** new trigger.
-12.	Enter the trigger properties accordingly. In this case, we create a daily tumbling window trigger.
+4.	Navigate to **datasetBlobfromSQL -> Parameters -> File Name**, and set the value as **@pipeline().parameters.filename**<br/>
+   <img src="images/ex25.jpg"/><br/>
+8.	Navigate to the **CopyPipeline**, do a Test Run.<br/>
+   <img src="images/ex26.jpg"/><br/>
+9.	It will ask for an input parameter. Enter appropriate name and this will be used as the file name in sink.<br/>
+   <img src="images/ex27.jpg"/><br/>
+10.	Click on **Finish** (and **Publish**). This will write the changes to Master.
+11.	Click on **CopyPipeline -> Triggers -> Add** new trigger.<br/>
+   <img src="images/ex28.jpg"/><br/>
+12.	Enter the trigger properties accordingly. In this case, we create a daily tumbling window trigger.<br/>
+   <img src="images/ex29.jpg"/><br/>
 Set Start, End time for **Trigger**. Check **Activated** check-box. 
-13.	Click **Next**.
+13.	Click **Save**.
 14.	In the **Trigger** Run Parameter window,Set **fileName -> copyfromsql_@{formatDateTime(trigger().outputs.windowStartTime, 'yyyy-MM-dd')}**
 
 ``
@@ -149,5 +168,9 @@ Note: Expressions can be changed based on requirements.
 ``
 
 15.	Click **Finish**.
-Make sure you ‘Publish’ for the trigger to activated.
+Make sure you **‘Publish’** for the trigger to activated.
+16.	Navigate to Monitoring section to see pipeline runs.<br/>
+   <img src="images/ex30.jpg"/><br/>
+17.	We can find the appropriate parameters being passed during each triggered run. 
+18.	On Successful run of the CopyPipeline, navigate to the storage locations using Storage Explorer or Azure Portal (Storage Account), to verify the files copied. The filename would be defined by the parameter -> fileName.  
 
