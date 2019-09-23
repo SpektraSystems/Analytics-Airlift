@@ -10,8 +10,6 @@ Part 2 – Connect ADF to a code repository to begin using the ADF GUI
 Part 3 – Setting up the Connections in the ADF GUI (Azure SQL Database -> Blob)
 Part 4 – Setting up the Copy Activity in the ADF GUI (Azure SQL Database -> Blob)
 Part 5 – Using Parameters and Triggers (scheduling) in ADF GUI
-
-
  
 ### Summary
 This tutorial walks through creating a pipeline copy activity to copy a file from a S3 storage location to an Azure Data Lake Storage Gen2 container, so we can prepare the file to be processed later for transformation.
@@ -20,9 +18,7 @@ In this lab we will:
 •	Show the graphical user interface for creating a pipeline
 •	Copy CSV file via a Copy Activity
 •	Copy Structed data from SQL Azure via a Copy Activity
-•	Use parameters to make the pipeline easy to change and more reusable
-
- 
+•	Use parameters to make the pipeline easy to change and more reusable 
  
 ### Prerequisites
 •	Azure Subscription with rights to use/deploy Azure services, and X of Azure credit
