@@ -51,7 +51,7 @@ One option to be able to sync our code is to connect ADF to a code repository. T
    <img src="images/ex03.jpg"/><br/>
 4.	Click the **Set up Code Repository** button to begin connecting this Azure data factory to a code repository.<br/>
    <img src="images/ex3.jpg"/><br/>
-5.	You can either create a new VSTS account for this lab or use an existing one. You can create a new one - http://app.vsaex.visualstudio.com/project/profile/account and configure it in ADF GUI under repository settings. You need to create/ select a Project under this Account.<br/>
+5.	You can either create a new VSTS account for this lab or use an existing one. You can create a new one -[Here](https://app.vsaex.visualstudio.com/signup/?mkt=en-US&acquisitionType=byDefault) and configure it in ADF GUI under repository settings. You need to create/ select a Project under this Account.<br/>
    <img src="images/ex04.jpg"/><br/>
 6.	The Repository Settings pane will appear on the right.<br/>
    <img src="images/ex05.jpg"/><br/>
