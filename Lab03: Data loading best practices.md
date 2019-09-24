@@ -193,7 +193,9 @@ In the next set of steps we are going to take the staging tables we created in p
 ### Part 5 – Copy Data into Correctly formatted tables via CTAS
 Now that we have a set of partitioned tables and an empty fact table, we can start doing partition switches into the table.
 
-1. Open the 5 -**LoadWithPartitionSwitch.dsql** file that can be found in the **LabContent** folder on your desktop under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
+1. The next script that you will run loops through the partitioned tables and dynamically switches the partitions.  Because this operation is on the metadata, there is relatively little downtime for the amount of data "loaded" into the production fact table.
+
+Open the 5 -**LoadWithPartitionSwitch.dsql** file that can be found in the **LabContent** folder on your desktop under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
     <img src="images/ld8.jpg"/><br/>
     <img src="images/load.jpg"/><br/>
 2. To switch the partitions on your empty fact table. Run the following script that is part of 5 -**LoadWithPartitionSwitch.dsql** script and replace it with existing content in query window.
