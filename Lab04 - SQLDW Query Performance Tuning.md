@@ -209,22 +209,28 @@ Now that your user has got all of their data loaded and organized they are tryin
     <img src="images/sql23.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
+    <img src="images/sql34.jpg"/><br/>
 7.	You can use the labels to search for your specific query. Powershell window shows the “Label” that was used during query execution<br/>
 8.	Look for most recent execution of Exercise 4 query (“Running” or “Completed”)<br/>
-9.	Check the steps and determine which one(s) might be the problematic steps.
+    <img src="images/sql24.jpg"/><br/>
+9.	Check the steps and determine which one(s) might be the problematic steps.<br/>
+    <img src="images/sql35.jpg"/><br/>
 10.	Run the same query with Fast option.<br/>
 ``
 .\RunExercise.ps1 -Name Exercise4 -Type Fast
 ``
+    <img src="images/sql26.jpg"/><br/>
 11.	Compare the 2 query execution plans and determine what would be the reason for query slowness.<br/>
+    <img src="images/sql27.jpg"/><br/>
+    <img src="images/sql28.jpg"/><br/>
 ```
 Hint: In this example, the query plan is optimal. This query could benefit if it was given more memory.  How much memory has been allocated to this query?  How can you use sys.dm_pdw_exec_requests to determine the memory grant? How can you change the memory allocation for a query?
 ```
 
 ## Discussion
-In this exercise you will follow the same method to get to step 9. This time we see that the plan is a single step plan - a return operation. From a distributed plan perspective this is ideal because no data movement occurred. We simply were able to run the distributed queries on each distribution and return the results.
-For a query like this we cannot improve the MPP plan, so the next option to look at is resource class. You should have noticed that exec_requests shows that the query was running in smallRC. Certain queries will benefit from the larger memory allocation of larger resource classes and this usually requires testing to find the ideal balance of resource class usage for a query vs concurrency.
-Once you are at step 11, you should have looked at exec_requests and noticed that it was now running in LargeRC and the execution time was faster. These test queries are pretty fast running because the execution time is low, but for larger queries this can make a big difference. The default resource class is small. Remember, as you increase resource class you also decrease concurrency, so testing is required. 
+In this exercise you will follow the same method to get to step 9. This time we see that the plan is a single step plan - a return operation. From a distributed plan perspective this is ideal because no data movement occurred. We simply were able to run the distributed queries on each distribution and return the results.<br/><br/>
+For a query like this we cannot improve the MPP plan, so the next option to look at is resource class. You should have noticed that exec_requests shows that the query was running in smallRC. Certain queries will benefit from the larger memory allocation of larger resource classes and this usually requires testing to find the ideal balance of resource class usage for a query vs concurrency.<br/><br/>
+Once you are at step 11, you should have looked at exec_requests and noticed that it was now running in LargeRC and the execution time was faster. These test queries are pretty fast running because the execution time is low, but for larger queries this can make a big difference. The default resource class is small. Remember, as you increase resource class you also decrease concurrency, so testing is required.<br/><br/>
 If you want to change the resource class for a query you would use sp_addrolemember and sp_droprolemember
 
 ### Part 5: Query analysis
@@ -237,59 +243,45 @@ Now that you’ve helped your user with some of their initial issues, they’re 
 ```
 “.\RunExercise.ps1 -Name Exercise5 -Type Slow”
 ```
-5.	This script will create a workload simulation on your server. It will create 20 background jobs which will send queries to your system.
+    <img src="images/sql29.jpg"/><br/>
+5.	This script will create a workload simulation on your server. It will create 20 background jobs which will send queries to your system.<br/>
 6.	It will wait for 60 seconds for all background jobs properly starts and then will start your problematic query.<br/>
 7.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 8.	Check all the active queries.<br/>
+```
+SELECT * FROM sys.dm_pdw_exec_requests
+WHERE status not in ('completed', 'failed', 'cancelled') AND session_id <> session_id()
+ORDER BY request_id DESC;
+
+```
 9.	Can you tell what is happening?<br/>
 ``
 Hint: What is the state of this query in sys.dm_pdw_exec_requests?  Why?
 Hint: Run this query.  What does it tell you about the state of the query? 
 Hint: What can be changed to ensure these small queries run? After you investigate connect to ‘demo5_fast’ to see the changes in action.
 ``
-10.	You need to kill the background jobs before continuing.
-11.	Cancel the running process on current PowerShell window.
-12.	Run “.\Kill.ps1”
-13.	Make sure you close the PowerShell window.
-14.	Open a PowerShell window.
-15.	Change directory to Query Performance Tuning lab content folder.
-16.	Change directory to Lab sub folder.
-17.	Run “RunExercise.ps1” script with following parameters Run the same query with Fast option.
+10.	You need to kill the background jobs before continuing.<br/>
+11.	Cancel the running process on current PowerShell window.<br/>
+12.	Run “.\Kill.ps1”<br/>
+    <img src="images/kill1.jpg"/><br/>
+13.	Make sure you close the PowerShell window.<br/>
+14.	Open a PowerShell window.<br/>
+15.	Change directory to Query Performance Tuning lab content folder.<br/>
+16.	Change directory to Lab sub folder.<br/>
+17.	Run “RunExercise.ps1” script with following parameters Run the same query with Fast option.<br/>
 “.\RunExercise.ps1 -Name Exercise5 -Type Fast”
-18.	Compare the 2 query execution plans.
-19.	You need to kill the background jobs before continuing.
-20.	Cancel the running process on current PowerShell window.
+    <img src="images/sql32.jpg"/><br/>
+18.	Compare the 2 query execution plans.<br/>
+19.	You need to kill the background jobs before continuing.<br/>
+20.	Cancel the running process on current PowerShell window.<br/>
 21.	Run “.\Kill.ps1”
+    <img src="images/kill.jpg"/><br/>
 22.	Make sure you close the PowerShell window.
 
 ## Discussion
-This exercise tries to simulate an active workload on your data warehouse. It creates 20 background sessions which sends queries constantly.
-When you reached to step 9 on Slow execution exercise, you will notice that your query is in the queue (“Suspended”) and does not “Running”. You can check wait stats and see that what is your query is waiting on “UserConcurrencyResourceType” which means that it is waiting for enough concurrency slots become available.
-When you check dm_pdw_exec_requests you will notice that this query is running on largerc resource class. In previous example we talk about using higher resource classes allow your query to have more memory resources. But this will result in more memory consumption from the overall system and resulted in less concurrent query executions. So you need to be careful about which resource classes you are using for executing your queries. Always test your queries with your actual workload.
+This exercise tries to simulate an active workload on your data warehouse. It creates 20 background sessions which sends queries constantly.<br/><br/>
+When you reached to step 9 on Slow execution exercise, you will notice that your query is in the queue (“Suspended”) and does not “Running”. You can check wait stats and see that what is your query is waiting on “UserConcurrencyResourceType” which means that it is waiting for enough concurrency slots become available.<br/><br/>
+When you check dm_pdw_exec_requests you will notice that this query is running on largerc resource class. In previous example we talk about using higher resource classes allow your query to have more memory resources. But this will result in more memory consumption from the overall system and resulted in less concurrent query executions. So you need to be careful about which resource classes you are using for executing your queries. Always test your queries with your actual workload.<br/><br/>
 On faster version of this exercise you will notice that your queries might again queued but once there is enough concurrency slots available it will go through the execution. You will see that your query runs 3 times but at every execution it waits on the queue. You can check the queue waiting time by comparing start_time and submit_time in dm_pdw_exec_requests DMV.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
