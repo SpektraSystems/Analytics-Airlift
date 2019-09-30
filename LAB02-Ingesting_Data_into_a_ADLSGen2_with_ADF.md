@@ -2,38 +2,38 @@
 
 ## Table of Contents
 
-Summary
-Pre-requisite
-Scenario
-Part 1 – Create an Azure Data Factory (v2)
-Part 2 – Connect ADF to a code repository to begin using the ADF GUI
-Part 3 – Setting up the Connections in the ADF GUI (Azure SQL Database -> Blob)
-Part 4 – Setting up the Copy Activity in the ADF GUI (Azure SQL Database -> Blob)
+Summary<br/>
+Pre-requisite<br/>
+Scenario<br/>
+Part 1 – Create an Azure Data Factory (v2)<br/>
+Part 2 – Connect ADF to a code repository to begin using the ADF GUI<br/>
+Part 3 – Setting up the Connections in the ADF GUI (Azure SQL Database -> Blob)<br/>
+Part 4 – Setting up the Copy Activity in the ADF GUI (Azure SQL Database -> Blob)<br/>
 Part 5 – Using Parameters and Triggers (scheduling) in ADF GUI
  
 ### Summary
 This tutorial walks through creating a pipeline copy activity to copy a file from a S3 storage location to an Azure Data Lake Storage Gen2 container, so we can prepare the file to be processed later for transformation.
 
-In this lab we will:
-•	Show the graphical user interface for creating a pipeline
-•	Copy CSV file via a Copy Activity
-•	Copy Structed data from SQL Azure via a Copy Activity
-•	Use parameters to make the pipeline easy to change and more reusable 
+In this lab we will:<br/>
+•	Show the graphical user interface for creating a pipeline<br/>
+•	Copy CSV file via a Copy Activity<br/>
+•	Copy Structed data from SQL Azure via a Copy Activity<br/>
+•	Use parameters to make the pipeline easy to change and more reusable<br/>
  
 ### Prerequisites
-•	Azure Subscription with rights to use/deploy Azure services, and X of Azure credit
-•	An ADLS Gen2 storage account with a filesystem (container)
-•	Azure Data Factory
-•	Visual Studio Team Services Git project (optional)
+•	Azure Subscription with rights to use/deploy Azure services, and X of Azure credit<br/>
+•	An ADLS Gen2 storage account with a filesystem (container)<br/>
+•	Azure Data Factory<br/>
+•	Visual Studio Team Services Git project (optional)<br/>
 
 ### Part 1 – Create an Azure Data Factory (v2)
 We are going to use the portal to create the Azure Data Factory.
 
-1.	Go to Azure Portal- https://portal.azure.com.
-2.	Select New on the left menu, select Data + Analytics, and then select Data Factory.
-3.	On the New data factory page, enter adflab-adf for Name.
-4.	Make sure you select Version as ‘V2’
-5.	Click ‘Create.
+1.	Go to Azure Portal- https://portal.azure.com.<br/>
+2.	Select New on the left menu, select Data + Analytics, and then select Data Factory.<br/>
+3.	On the New data factory page, enter adflab-adf for Name.<br/>
+4.	Make sure you select Version as ‘V2’<br/>
+5.	Click ‘Create.<br/>
 
 ``
 Note: The name of the Azure data factory must be globally unique. Please modify the name if the Name validation fails.
