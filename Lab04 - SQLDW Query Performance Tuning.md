@@ -240,9 +240,9 @@ Now that you’ve helped your user with some of their initial issues, they’re 
 2.	Change directory to Query Performance Tuning lab content folder.<br/>
 3.	Change directory to Lab sub folder.<br/>
 4.	Run “RunExercise.ps1” script with following parameters<br/>
-```
+``
 “.\RunExercise.ps1 -Name Exercise5 -Type Slow”
-```
+``
     <img src="images/sql29.jpg"/><br/>
 5.	This script will create a workload simulation on your server. It will create 20 background jobs which will send queries to your system.<br/>
 6.	It will wait for 60 seconds for all background jobs properly starts and then will start your problematic query.<br/>
@@ -269,7 +269,9 @@ Hint: What can be changed to ensure these small queries run? After you investiga
 15.	Change directory to Query Performance Tuning lab content folder.<br/>
 16.	Change directory to Lab sub folder.<br/>
 17.	Run “RunExercise.ps1” script with following parameters Run the same query with Fast option.<br/>
+``
 “.\RunExercise.ps1 -Name Exercise5 -Type Fast”
+``
     <img src="images/sql32.jpg"/><br/>
 18.	Compare the 2 query execution plans.<br/>
 19.	You need to kill the background jobs before continuing.<br/>
