@@ -85,10 +85,10 @@ We now want to use the GUI to create a Copy Activity in the pipeline to move the
 
 1.	Click the **Pipeline** in the left menu and then click the **+** sign for adding the pipepline.
 2.	In the **Pipeline GUI**, drag the Copy activity (under Move & Transform) to the empty pane above General.
-3.	Rename the activity to **AzureSQL-toAzureBlob**.<br/>
-   <img src="images/ex11.jpg"/><br/>
+3.	Rename the activity to **AzureSQLtoADLSGen2**.<br/>
 4.	Click **Save**.
 5.	Click the **Source** Tab in the **Copy Activity GUI**.
+   <img src="images/adls5.jpg"/><br/>
 6.	Click the **+New** button next to Source **Dataset**.<br/>
 7.	You should now see the list of source **dataset** connectors.
 8.	Choose the **Azure SQL dataset** and click **Finish**.
@@ -111,7 +111,7 @@ FROM [SalesLT].[Customer]
 ``
 Note: This Query may change based on your table selection. 
 ``<br/>
-   <img src="images/ex16.jpg"/><br/>
+   <img src="images/adls6.jpg"/><br/>
 13.	Click on **Preview data** to ensure the query works.<br/>
 14.	Click back on the **CopyPipeline**.<br/>
 15.	Click the **AzureSQLtoADLSGen2** copy activity.<br/>
