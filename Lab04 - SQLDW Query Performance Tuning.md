@@ -163,9 +163,9 @@ Again, your user comes to you with questions, saying “I’ve just loaded my da
 2.	Change directory to Query Performance Tuning lab content folder.<br/>
 3.	Change directory to Lab sub folder.<br/>
 4.Run “RunExercise.ps1” script with following parameters<br/>
-```
+``
 .\RunExercise.ps1 -Name Exercise3 -Type Slow
-```
+``
     <img src="images/sql16.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
