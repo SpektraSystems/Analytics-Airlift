@@ -123,21 +123,21 @@ Note: This Query may change based on your table selection.
    <img src="images/ex17.jpg"/><br/>
 20. Select the format as **DelimitedText** and click on **Conitnue**.<br/>
    <img src="images/ex18.jpg"/><br/>
-20.	Name the dataset as **datasetBlobfromSQL**
-21. Drop down for Linked Service and Click on **+New**.<br/>
+21.	Name the dataset as **datasetBlobfromSQL**<br/>
+22. Drop down for Linked Service and Click on **+New**.<br/>
    <img src="images/ex19.jpg"/><br/>
-22. Fill the instructions as following:<br/>
+23. Fill the instructions as following:<br/>
    <img src="images/ex20.jpg"/><br/>
-23. **Test Connection** and Click the **Finish** button.   
-24. Set the properties. Click browse button and drill down to the **inputsql** container.<br/>
+24. **Test Connection** and Click the **Finish** button.   
+25. Set the properties. Click browse button and drill down to the **inputsql** container.<br/>
    <img src="images/ex22.jpg"/><br/>
 ``
 Note: Make sure **inputsql** container exists or else create one first. 
 ``
 
-22.	Click the **Finish** button.
-23.	Navigate to the **CopyPipeline**
-24.	**Save** the changes. Click the **Debug** icon at the top menu to test and run our copy activity.<br/>
+26.	Click the **Finish** button.
+27.	Navigate to the **CopyPipeline**
+28.	**Save** the changes. Click the **Debug** icon at the top menu to test and run our copy activity.<br/>
    <img src="images/ex24.jpg"/><br/>
 
 ### Part 5 – Using Parameters and Triggers (scheduling) in ADF GUI
