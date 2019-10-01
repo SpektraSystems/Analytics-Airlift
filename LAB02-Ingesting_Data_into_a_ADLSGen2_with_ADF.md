@@ -131,14 +131,19 @@ Note: This Query may change based on your table selection.
 20. Select the format as **DelimitedText** and click on **Conitnue**.<br/>
    <img src="images/ex18.jpg"/><br/>
 21.	Name the dataset as **datasetADLSgen2fromSQL**<br/>
-21.	Fill out the following information: **Linked Service** -> **gen2connection**, **File Path -> Click the Browse button and drill down to the inputsql container**.
-   <img src="images/adls1.jpg"/><br/>
-```
-Note: Make sure inputsql container exists or else create one first. 
-```
-22.	Save the **dataset**<br/>
-23.	Navigate to the **CopyPipeline**<br/>
-24.	Click the **Debug** icon at the top menu to test and run our copy activity.
+22. Drop down for Linked Service and Click on **+New**.<br/>
+   <img src="images/ex19.jpg"/><br/>
+23. Fill the instructions as following:<br/>
+   <img src="images/gen3.jpg"/><br/>
+24. **Test Connection** and Click the **Finish** button.   
+25. Set the properties. Click browse button and drill down to the **inputsql** container.<br/>
+``
+Note: Make sure **inputsql** container exists or else create one first. 
+``
+
+26.	Click the **Finish** button.
+27.	Navigate to the **CopyPipeline**
+28.	**Save** the changes. Click the **Debug** icon at the top menu to test and run our copy activity.<br/>
 
 ### Part 5 – Using Parameters and Triggers (scheduling) in ADF GUI
 You can define parameters at the pipeline level and pass arguments while you're invoking the pipeline on-demand or from a trigger. Activities can consume the arguments that are passed to the pipeline. Using parameters, you can build more flexible pipelines. 
