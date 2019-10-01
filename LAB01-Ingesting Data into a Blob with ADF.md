@@ -22,7 +22,7 @@ In this lab we will:<br/>
  
 ## Prerequisites
 •	Azure Subscription with rights to use/deploy Azure services, and X of Azure credit<br/>
-•	An ADLS Gen2 storage account with a filesystem (container)<br/>
+•	An storage account with a container (container)<br/>
 •	Azure Data Factory<br/>
 •	Visual Studio Team Services Git project (optional)<br/>
 
@@ -34,14 +34,19 @@ We are going to use the portal to create the Azure Data Factory.
     <img src="images/ex01.jpg"/><br/>
 3.	On the New data factory page, enter **ad-flab-adf** for Name.
 4.	Make sure you select **Version** as **V2 (Pre-view)**<br/>
-   <img src="images/ex03.jpg"/><br/>
+   <img src="images/ex02.jpg"/><br/>
 
 ``
 Note: The name of the Azure data factory must be globally unique. Please modify the name if the Name validation fails. 
 ``
 
 5.	After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the **Azure Data Factory** user interface (UI) application on a separate tab.<br/>
-   <img src="images/ex02.jpg"/><br/>
+   <img src="images/ex03.jpg"/><br/>
+6. Go to **g1stor Azure Storage** in azure portal
+   <img src="images/gen1.jpg"/><br/>
+7. Create **Blob Container** in **g1stor** Azure Storage.<br/>
+   <img src="images/gen2.jpg"/><br/>
+
 ### Part 2 – Connect ADF to a code repository to begin using the ADF GUI (Optional)
 One option to be able to sync our code is to connect ADF to a code repository. This section walks through the steps to connect ADF to a Visual Studio Team Services Git project, so we can save our code for later re-use. Note that this is not required but a recommended best practice.
 
@@ -55,7 +60,7 @@ One option to be able to sync our code is to connect ADF to a code repository. T
    <img src="images/ex04.jpg"/><br/>
 6.	The Repository Settings pane will appear on the right.<br/>
    <img src="images/ex05.jpg"/><br/>
-7.	Select **Use Exiisting** in select working branch page and click the **Save** button when you have verified your settings.
+7.	Select **Use Existing** in select working branch page and click the **Save** button when you have verified your settings.
 
 
 ### Part 3 – Setting up the Connections in the ADF GUI (Azure SQL Database -> Blob)
