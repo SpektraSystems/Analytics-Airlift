@@ -41,6 +41,13 @@ Note: The name of the Azure data factory must be globally unique. Please modify 
 
 5.	After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the **Azure Data Factory** user interface (UI) application on a separate tab.<br/>
    <img src="images/ex02.jpg"/><br/>
+ 6. Go to **ADLS Gen2 storage accountt** in azure portal
+   <img src="images/gen1.jpg"/><br/>
+7. Create **File Systems** in **adlsg2** storage account as per below instructions:<br/>
+   a. Name: **inputsql**<br/>
+   and Click **OK**<br/>
+   <img src="images/gen2.jpg"/><br/>  
+   
 ### Part 2 – Connect ADF to a code repository to begin using the ADF GUI (Optional)
 One option to be able to sync our code is to connect ADF to a code repository. This section walks through the steps to connect ADF to a Visual Studio Team Services Git project, so we can save our code for later re-use. Note that this is not required but a recommended best practice.
 
