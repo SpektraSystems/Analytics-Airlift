@@ -146,7 +146,6 @@ Note: Make sure **inputsql** container exists or else create one first.
 26.	Click the **Finish** button.
 27.	Navigate to the **CopyPipeline**
 28.	**Save** the changes. Click the **Debug** icon at the top menu to test and run our copy activity.<br/>
-   <img src="images/ex24.jpg"/><br/>
 
 ### Part 5 – Using Parameters and Triggers (scheduling) in ADF GUI
 You can define parameters at the pipeline level and pass arguments while you're invoking the pipeline on-demand or from a trigger. Activities can consume the arguments that are passed to the pipeline. Using parameters, you can build more flexible pipelines. 
