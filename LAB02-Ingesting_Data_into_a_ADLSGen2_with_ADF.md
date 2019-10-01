@@ -131,12 +131,12 @@ Note: This Query may change based on your table selection.
 20. Select the format as **DelimitedText** and click on **Conitnue**.<br/>
    <img src="images/ex18.jpg"/><br/>
 21.	Name the dataset as **datasetADLSgen2fromSQL**<br/>
-22. Drop down for Linked Service and Click on **+New**.<br/>
-   <img src="images/ex19.jpg"/><br/>
+22. Drop down for **Linked Service** and Click on **+New**.<br/>
 23. Fill the instructions as following:<br/>
    <img src="images/gen3.jpg"/><br/>
 24. **Test Connection** and Click the **Finish** button.   
 25. Set the properties. Click browse button and drill down to the **inputsql** container.<br/>
+   <img src="images/set1.jpg"/><br/>
 ``
 Note: Make sure **inputsql** container exists or else create one first. 
 ``
