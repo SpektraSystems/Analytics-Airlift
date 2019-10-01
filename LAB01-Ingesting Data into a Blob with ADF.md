@@ -44,7 +44,10 @@ Note: The name of the Azure data factory must be globally unique. Please modify 
    <img src="images/ex03.jpg"/><br/>
 6. Go to **g1stor Azure Storage** in azure portal
    <img src="images/gen1.jpg"/><br/>
-7. Create **Blob Container** in **g1stor** Azure Storage.<br/>
+7. Create **Blob Container** in **g1stor** Azure Storage as per below instructions:<br/>
+   a. Name: **inputsql**<br/>
+   b. Public access level: **Container**<br/>
+   and Click **OK**
    <img src="images/gen2.jpg"/><br/>
 
 ### Part 2 – Connect ADF to a code repository to begin using the ADF GUI (Optional)
