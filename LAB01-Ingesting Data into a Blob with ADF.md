@@ -47,7 +47,7 @@ Note: The name of the Azure data factory must be globally unique. Please modify 
 7. Create **Blob Container** in **g1stor** Azure Storage as per below instructions:<br/>
    a. Name: **inputsql**<br/>
    b. Public access level: **Container**<br/>
-   and Click **OK**
+   and Click **OK**<br/>
    <img src="images/gen2.jpg"/><br/>
 
 ### Part 2 – Connect ADF to a code repository to begin using the ADF GUI (Optional)
