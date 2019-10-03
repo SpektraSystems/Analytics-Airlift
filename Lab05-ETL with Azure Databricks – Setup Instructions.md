@@ -20,9 +20,7 @@ We will not create a scheduled trigger in this template for simplicity, and you 
 4. Ensure you have an **Azure Databricks workspace** or create a new one.<br/>
 
 a. Import the below **Transform** notebook to the databricks workspace. (need not be the same location as below, just remember the path for later usage)<br/>
-```
-ACTION REQUIRED – Import the notebook for ETL. Import the notebook from URL. Please enter the below URL in the URL field: **https://adflabstaging1.blob.core.windows.net/share/Transformations.html**. Select Import.<br/>
-```
+ACTION REQUIRED – Import the notebook for ETL. Import the notebook from URL. Please enter the below URL in the URL field: **https://adflabstaging1.blob.core.windows.net/share/Transformations.html**. Select **Import**.<br/>
    <img src="images/adf2.jpg"/><br/>
 b. Now let’s update the **Transformation** notebook with your storage connection information (name and access key). Go to command 5 in the imported notebook above, replace it with the below code snippet after replacing the highlighted values. Ensure this is the same storage account created earlier and contains the sinkdata container.<br/>
    <img src="images/adf3.jpg"/><br/>
