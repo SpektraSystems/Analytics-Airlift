@@ -34,7 +34,7 @@ c. Generate a databricks access token for **ADF** to access databricks. Save the
 a.	**Source** – for accessing source data. You can use the public blob storage containing the source files for this sample.<br/>
 Select **Blob Storage**, use the below **SAS URI** to connect to source storage (read-only access).<br/>
 ```
-https://storagewithdata.blob.core.windows.net/?sv=2017-11-09&ss=b&srt=sco&sp=rl&se=2019-12-31T21:40:53Z&st=2018-10-24T13:40:53Z&spr=https&sig=K8nRio7c4xMLnUV0wWVAmqr5H4P3JDwBaG9HCevI7kU%3D<br/>
+https://storagewithdata.blob.core.windows.net/?sv=2017-11-09&ss=b&srt=sco&sp=rl&se=2019-12-31T21:40:53Z&st=2018-10-24T13:40:53Z&spr=https&sig=K8nRio7c4xMLnUV0wWVAmqr5H4P3JDwBaG9HCevI7kU%3D
 ```
    <img src="images/adf10.jpg"/><br/>
 b.	**Sink** – for copying data into.<br/>
