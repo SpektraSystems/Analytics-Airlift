@@ -10,3 +10,4 @@ Please note: This is a rough agenda, and the schedule is subject to change pendi
   - [Lab 1.3: Data loading best practices Final - edits](https://github.com/SpektraSystems/Analytics-Airlift/blob/master/Lab03:%20Data%20loading%20best%20practices.md)
 - SQLDW - Query tuning lab
   - [Lab 1.4: SQLDW - Query Performance Tuning](https://github.com/SpektraSystems/Analytics-Airlift/blob/master/Lab04%20-%20SQLDW%20Query%20Performance%20Tuning.md)
+  - [Lab 1.5: ETL with Azure Databricks](https://github.com/SpektraSystems/Analytics-Airlift/blob/master/Lab04%20-%20SQLDW%20Query%20Performance%20Tuning.md)d)
