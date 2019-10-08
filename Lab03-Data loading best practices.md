@@ -63,7 +63,7 @@ Note: Before opening Visual Studio click on Con-figure your firewall to make sur
 9. **Expand** the object tree within the **SQL Server** object explorer pane.<br/>
 10. Right click the database name and select **New Query**.  A new query window will open<br/>
     <img src="images/ld7.jpg"/><br/>
-11. Open the **Setup** file that can be found in the **LabContent** folder on your desktop under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
+11. Open the **Setup** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
     <img src="images/ld8.jpg"/><br/>
     <img src="images/ld.jpg"/><br/>
 12. Copy the content of **Setup** script and paste it in new query window.<br/>
@@ -95,7 +95,7 @@ Note: Before opening Visual Studio click on Con-figure your firewall to make sur
 9. **Expand** the object tree within the **SQL Server** object explorer pane.<br/>
 10. Right click the database name and select **New Query**.  A new query window will open<br/>
     <img src="images/ld7.jpg"/><br/>
-11. Open the **setup ADLS Gen2** file that can be found in the **LabContent** folder on your desktop under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
+11. Open the **setup ADLS Gen2** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
     <img src="images/ld8.jpg"/><br/>
     <img src="images/ld0.jpg"/><br/>
 12. Copy the content of **setup ADLS Gen2** script and paste it in new query window.<br/>
@@ -104,7 +104,7 @@ Note: Before opening Visual Studio click on Con-figure your firewall to make sur
 ### Part 2 – Load Dimension tables
 Now, we have created our external data source we can query and load the data we have in the Azure Blob Store.In the following lab we will load dimension tables into our SQL DW. Dimension tables are often a good first step because they are relatively small and this will allow you to gain an understanding of how to load data into SQL DW from WASB. 
 
-1. Open the **Dimensions** file that can be found in the **LabContent** folder on your desktop under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
+1. Open the **Dimensions** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
     <img src="images/ld8.jpg"/><br/>
     <img src="images/dimensions.jpg"/><br/>
 2. Copy the **Dimensions.sql** script and replace it with the existing script in query window.<br/>
@@ -164,13 +164,13 @@ Dim_Aircraft (id, type, manufacturer)
 ### Part 3 – Create Partitioned Fact Table
 To effectively leverage a partition swap load, a table has to exist with an exisiting partition scheme. To do this you must create an empty table with a partitioning scheme.
 
-1. To create an empty table partioned by DateID. Open the **2 - Create Fact Table** file that can be found in the **LabContent** folder on your desktop under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
+1. To create an empty table partioned by DateID. Open the **2 - Create Fact Table** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
     <img src="images/ld8.jpg"/><br/>
     <img src="images/create.jpg"/><br/>
 2. Copy the 2 - **Create Fact Table.dsql** script and replace it with existing content in query window.<br/>
     <img src="images/ld11.jpg"/><br/>
 3. To load the staging tables from WASB into SQDL DW. 
-4. Open the **3 - InitialFactLoad.dsql** file that can be found in the **LabContent** folder on your desktop under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
+4. Open the **3 - InitialFactLoad.dsql** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
     <img src="images/ld8.jpg"/><br/>
     <img src="images/initial.jpg"/><br/>
 5. Copy the 3 - **InitialFactLoad.dsql** script and replace it with existing content in query window <br/>
@@ -184,7 +184,7 @@ Note:
 ### Part 4 – Load data into partitioned staging tables from WASB
 In the next set of steps we are going to take the staging tables we created in part 3 and prep the data for a partition switch.
 
-1. Open the **4 - PartitionStagingTables.dsql** file that can be found in the **LabContent** folder on your desktop under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
+1. Open the **4 - PartitionStagingTables.dsql** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
     <img src="images/ld8.jpg"/><br/>
     <img src="images/Partition.jpg"/><br/>
 2. To complete the staging table prep. Copy the script and replace it with existing content in query window <br/>
@@ -195,7 +195,7 @@ Now that we have a set of partitioned tables and an empty fact table, we can sta
 
 1. The next script that you will run loops through the partitioned tables and dynamically switches the partitions.  Because this operation is on the metadata, there is relatively little downtime for the amount of data "loaded" into the production fact table.
 
-Open the 5 -**LoadWithPartitionSwitch.dsql** file that can be found in the **LabContent** folder on your desktop under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
+Open the 5 -**LoadWithPartitionSwitch.dsql** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
     <img src="images/ld8.jpg"/><br/>
     <img src="images/load.jpg"/><br/>
 2. To switch the partitions on your empty fact table. Run the following script that is part of 5 -**LoadWithPartitionSwitch.dsql** script and replace it with existing content in query window.
