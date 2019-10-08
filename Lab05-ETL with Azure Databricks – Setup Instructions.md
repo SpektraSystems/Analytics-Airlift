@@ -15,7 +15,7 @@ We will not create a scheduled trigger in this template for simplicity, and you 
     a. Name: **staged_sink**<br/>
     Click Ok<br/>
    <img src="images/adf6.jpg"/><br/>    
-3. Now, Upload **Product.csv** file in that **staged_sink** folder.<br/>
+3. Now, Upload **Product.csv** file in that **staged_sink** folder. You will get this file in "C:\staged_sink"<br/>
    <img src="images/adf7.jpg"/><br/>
 4. Ensure you have an **Azure Databricks workspace** or create a new one.<br/>
 
