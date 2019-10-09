@@ -26,8 +26,11 @@ The login that you use for running this script should have “Create Login” pe
 This script will create multiple versions of customer, orders, lineitem, part, partsupp, supplier, nation and region tables. These tables will be used during your lab.
 You will also edit the PowerShell script and add your server and database names. This will be used during exercises.
 
-1.	Open a PowerShell window.<br/>
-2.	Change directory to Query Performance Tuning lab content folder.<br/>
+1.	Open a PowerShell window in your virtual machine.<br/>
+2.	Change directory to Query Performance Tuning lab content folder with given command:<br/>
+``
+cd C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Prep
+``
 3.	Change directory to Prep sub folder.<br/>
 4.	Run PrepLab.ps1 script with you Azure Data Warehouse details.<br/>
     <img src="images/sql1.jpg"/><br/>
