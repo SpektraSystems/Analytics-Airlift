@@ -41,12 +41,12 @@ During the Airlift, we will to Part 1 together.   In the lab we will use demo da
 ### Part 1a – Loading Blob storage data into Azure SQL Data Warehouse
 We have created our SQL Data Warehouse and now we want to load data into it.  We can do this through the traditional ways of ETL and tooling such as SQL Server Integration Services or third-party tooling.  However, today we are going to use Polybase. Your source data has been precreated and is in your Azure Blob Storage account.<
  
-1. Navigate to the **Azure portal** within the web browser which should be open from the last exercise.  If not, open the browser and navigate to https://portal.azure.com<br/>
-2.	Open the **Azure SQL Data Warehouse** blade from the tile on the portal dashboard (you pinned it in the earlier exercise).<br/>
+1. From your virtual machine navigate to the **Azure portal** within the web browser which should be open from the last exercise.  If not, open the browser and navigate to https://portal.azure.com<br/>
+2. Open the **Azure SQL Data Warehouse** blade from the tile on the portal dashboard (you pinned it in the earlier exercise).<br/>
     <img src="images/ld1.jpg"/><br/>
-3.	Looking at the **Overview** blade you can see the **Common Tasks** as shown in the screen shot.<br/>
+3. Looking at the **Overview** blade you can see the **Common Tasks** as shown in the screen shot.<br/>
     <img src="images/ld2.jpg"/><br/>
-4.	Click the **Open in Visual Studio** button.<br/>
+4. Click the **Open in Visual Studio** button.<br/>
     <img src="images/ld3.jpg"/><br/>
 ```
 Note: Before opening Visual Studio click on Con-figure your firewall to make sure that your Cli-entIP has been added to the rules.
