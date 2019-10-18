@@ -7,8 +7,8 @@ Pre-requisite<br/>
 Scenario<br/>
 Part 1 – Create an Azure Data Factory (v2)<br/>
 Part 2 – Connect ADF to a code repository to begin using the ADF GUI<br/>
-Part 3 – Setting up the Connections in the ADF GUI (Azure SQL Database -> Blob)<br/>
-Part 4 – Setting up the Copy Activity in the ADF GUI (Azure SQL Database -> Blob)<br/>
+Part 3 – Setting up the Connections in the ADF GUI (Azure SQL Database -> ADLS)<br/>
+Part 4 – Setting up the Copy Activity in the ADF GUI (Azure SQL Database -> ADLS)<br/>
 Part 5 – Using Parameters and Triggers (scheduling) in ADF GUI
  
 ### Summary
@@ -64,7 +64,7 @@ One option to be able to sync our code is to connect ADF to a code repository. T
 7.	Select **Use Exiisting** in select working branch page and click the **Save** button when you have verified your settings.
 
 
-### Part 3 – Setting up the Connections in the ADF GUI (Azure SQL Database -> Blob)
+### Part 3 – Setting up the Connections in the ADF GUI (Azure SQL Database -> ADLS)
 We now want to use the GUI to create another copy activity in the same pipeline to copy the Data from Azure SQL DB to Azure blob storage to be ready for transformation along with the earlier CSV file. Our first step is setting up the connections and linked services need for the source and destination.
 
 1.	In the Left Menu click the **Connections** menu item.
@@ -87,7 +87,7 @@ We now want to use the GUI to create another copy activity in the same pipeline 
    <img src="images/ex09.jpg"/><br/>
 8.	Click **Finish**.
 
-### Part 4 – Setting up the Copy Activity in the ADF GUI (Azure SQL Database -> Blob)
+### Part 4 – Setting up the Copy Activity in the ADF GUI (Azure SQL Database -> ADLS)
 We now want to use the GUI to create a Copy Activity in the pipeline to move the files from the Azure SQL Database as source to our Azure storage destination.
 
 1.	Click the **Pipeline** in the left menu and then click the **+** sign for adding the pipepline.
