@@ -70,37 +70,6 @@ Note: Before opening Visual Studio click on Con-figure your firewall to make sur
     <img src="images/ld9.jpg"/><br/>
 13. Execute the **Query**.
 
-### Part 1b – Loading Azure Data Lake Store Gen2 storage data into Azure SQL Data Warehouse
-We have created our SQL Data Warehouse and now we want to load data into it.  We can do this through the traditional ways of ETL and tooling such as SQL Server Integration Services or third-party tooling.  However, today we are going to use Polybase. Your source data has been precreated and is in your Azure ADLS Gen 2 Storage account.
- 
-1. Navigate to the **Azure portal** within the web browser which should be open from the last exercise.  If not, open the browser and navigate to https://portal.azure.com<br/>
-2.	Open the **Azure SQL Data Warehouse** blade from the tile on the portal dashboard (you pinned it in the earlier exercise).<br/>
-    <img src="images/ld1.jpg"/><br/>
-3.	Looking at the **Overview** blade you can see the **Common Tasks** as shown in the screen shot.<br/>
-    <img src="images/ld2.jpg"/><br/>
-4.	Click the **Open in Visual Studio** button.<br/>
-    <img src="images/ld3.jpg"/><br/>
-```
-Note: Before opening Visual Studio click on Con-figure your firewall to make sure that your Cli-entIP has been added to the rules.
-```
-
-5. Click **Open Link** on the dialog box that ap-pears. **Visual Studio** will now launch.<br/>
-    <img src="images/ld4.jpg"/><br/>
-6. Sign in with your give **Azure Credentials**.<br/>
-    <img src="images/ld5.jpg"/><br/>
-7. Fill in the **password** specified **Environment Detail Page**.<br/>
-    <img src="images/password.jpg"/><br/>
-    <img src="images/ld6.jpg"/><br/>
-8. Click **Connect**.<br/>
-9. **Expand** the object tree within the **SQL Server** object explorer pane.<br/>
-10. Right click the database name and select **New Query**.  A new query window will open<br/>
-    <img src="images/ld7.jpg"/><br/>
-11. Open the **setup ADLS Gen2** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
-    <img src="images/ld8.jpg"/><br/>
-    <img src="images/ld0.jpg"/><br/>
-12. Copy the content of **setup ADLS Gen2** script and paste it in new query window.<br/>
-13. Execute the **Query**.
-
 ### Part 2 – Load Dimension tables
 Now, we have created our external data source we can query and load the data we have in the Azure Blob Store.In the following lab we will load dimension tables into our SQL DW. Dimension tables are often a good first step because they are relatively small and this will allow you to gain an understanding of how to load data into SQL DW from WASB. 
 
