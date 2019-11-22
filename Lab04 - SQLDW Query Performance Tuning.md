@@ -135,7 +135,7 @@ Again, your user comes to you with questions, complaining that they are joining 
     <img src="images/sql11.jpg"/><br/>
 9.	Once you’ve identified the problematic query ID for this scenario, take a deeper look into it by using dm_pdw_request_steps:<br/><br/>
 Some steps of the DSQL plan are mostly overhead and can generally be ignored for purposes of optimizing the plan.<br/>
-These steps include the RandomIDOperation and the creation of the temporary tables for DMS.<br/
+These steps include the RandomIDOperation and the creation of the temporary tables for DMS.<br/>
 It can often help to add additional predicates to the above query to remove some of the overhead steps thus allowing you to focus on the heavy lifting operations. AND operation_type NOT IN ('RandomIDOperation')  AND command NOT LIKE 'CREATE %'  AND command NOT LIKE 'DROP %'<br/><br/>
     <img src="images/sql04.jpg"/><br/>    
 10.	Check the steps and determine which one(s) might be the problematic steps.<br/>
