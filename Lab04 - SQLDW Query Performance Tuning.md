@@ -41,7 +41,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass
     <img src="images/sql2.jpg"/><br/>
 
 6.	Open your **Query Performance Tuning Lab** content folder.<br/>
-7.	Change directory to Lab sub folder.<br/>
+7.	Change directory to **C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Lab>** sub folder.<br/>
 8.	Edit “RunExercise.ps1” script.<br/>
 9.	Replace **<your_server>** with your **server** name. (Without database.windows.net)<br/>
     <img src="images/sql01.jpg"/><br/>
