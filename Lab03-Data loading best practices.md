@@ -49,7 +49,7 @@ We have created our SQL Data Warehouse and now we want to load data into it.  We
 4. Click the **Open in Visual Studio** button.<br/>
     <img src="images/ld3.jpg"/><br/>
 ```
-Note: Before opening Visual Studio click on Con-figure your firewall to make sure that your Cli-entIP has been added to the rules.
+Note: Before opening Visual Studio click on Configure your firewall to make sure that your ClientIP has been added to the rules.
 ```
 
 5. Click **Open Link** on the dialog box that ap-pears. **Visual Studio** will now launch.<br/>
