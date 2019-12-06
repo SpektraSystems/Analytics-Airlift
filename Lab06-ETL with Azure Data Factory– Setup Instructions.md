@@ -35,7 +35,7 @@ b.	**Sink** – for copying data into.<br/>
 Create a new linked service. Select a storage created in the **prerequisite**, in the sink linked service.<br/>
   <img src="images/etl8.jpg"/><br/>
 2.	Create **datasets**<br/>
-a. Add **Dataset** as shown in image:
+a. Add **Dataset** as shown in image:<br/>
   <img src="images/etl9.jpg"/><br/>
 b.	Create **'sourceFiles_Dataset'** to check if source data is available.<br/>
    i. Select a data store as **Azure Blob Storage**
