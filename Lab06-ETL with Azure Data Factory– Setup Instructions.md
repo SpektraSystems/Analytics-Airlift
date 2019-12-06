@@ -34,9 +34,7 @@ Storage Account Key: <-Given in your environment page->
 b.	**Sink** – for copying data into.<br/>
 Create a new linked service. Select a storage created in the **prerequisite**, in the sink linked service.<br/>
   <img src="images/etl8.jpg"/><br/>
-   
 2.	Create **datasets**<br/>
-
 a. Add **Dataset** as shown in image:
   <img src="images/etl9.jpg"/><br/>
 b.	Create **'sourceFiles_Dataset'** to check if source data is available.<br/>
@@ -123,7 +121,6 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
 4. Go to the pipeline canvas. Click Debug to trigger a debug run.<br/>
    <img src="images/etl02.jpg"/><br/>
 5. Pipeline debug of Data Flow activities uses the active debug cluster but still take at least a minute to initialize. You can track the progress via the Output tab. Once the run is successful, click on the eyeglasses icon to open the monitoring pane.<br/>
-6. Go back to your Azure portal and open Blob Storage -> Containers -> sinkdata -> staged_sink. Download the **Product.csv** using the URL<br/>
+6. Go back to your Azure portal and open Blob Storage -> Containers -> sinkdata -> staged_sink. Download the **Product.csv** using the URL and check the CSV file result<br/>
   <img src="images/etl38.jpg"/><br/>
-7. Copy the   
 
