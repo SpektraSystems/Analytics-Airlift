@@ -23,6 +23,10 @@ In this tutorial, you do the following steps:
    
 ## Create Linked Service and Datasets
 
+1. In Azure Portal, go to **Resource Group** and **Click** on azure data factory.<br/>
+ <img src="images/etl1.jpg"/><br/>
+2. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.<br/>
+ <img src="images/etl2.jpg"/><br/>
 1.	Create new **linked services** in ADF UI by going to **Connections** -> **Linked services** -> **+ new**<br/>
 a.	**Source** – for accessing source data. You can use the public blob storage containing the source files for this sample.<br/>
 Select **Blob Storage**, use the below **Account Key** to connect to source storage.<br/>
