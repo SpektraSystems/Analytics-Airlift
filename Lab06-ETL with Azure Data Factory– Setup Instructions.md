@@ -18,7 +18,7 @@ In this tutorial, you do the following steps:
     a. Name: **staged_sink**<br/>
     Click Ok<br/>
    <img src="images/adf6.jpg"/><br/>    
-3. Now, Upload **any** file in that **staged_sink** folder. You will get this file in "C:\staged_sink"<br/>
+3. Now, Upload **any** file in that **staged_sink** folder.<br/>
    <img src="images/adf7.jpg"/><br/>
    
 ## Create Linked Service and Datasets
