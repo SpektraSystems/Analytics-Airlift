@@ -82,7 +82,7 @@ toInteger(product_id)
    <img src="images/etl27.jpg"/><br/>
 9. Add other columns **product_id**, **category**, **brand**, **model**, **size**, **price** and **doublePrice** also.<br/>
    <img src="images/etl28.jpg"/><br/>
-10. The next transformation you'll add is an **Select** transformation under **Schema modifier**.<br/><br/>
+10. The next transformation you'll add is an **Select** transformation under **Schema modifier**.<br/>
    <img src="images/etl29.jpg"/><br/>
 11. Using select transformation will Rename the **product_id** to **prodID**. Name your **Select** transformation as **UpdateName**.<br/>
    <img src="images/etl30.jpg"/><br/>
@@ -116,7 +116,7 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
 2. In the Activities pane, expand the **Move and Transform** accordion. Drag and drop the Data Flow activity from the pane to the pipeline canvas.Name it as **pipeline**.<br/>
    <img src="images/etl37.jpg"/><br/>
    <img src="images/etl36.jpg"/><br/>
-3. In the Adding Data Flow pop-up, select **Use existig Data Flow** and select **datflow** from drop down. Click Finish when done.
+3. In the Adding Data Flow pop-up, select **Use existig Data Flow** and select **datflow** from drop down. Click Finish when done.<br/>
    <img src="images/etl34.jpg"/><br/>
 4. Go to the pipeline canvas. Click Debug to trigger a debug run.<br/>
    <img src="images/etl02.jpg"/><br/>
