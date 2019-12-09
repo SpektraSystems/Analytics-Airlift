@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Blob Storage () Gen2 source to an Blob Storage sink using mapping data flow. The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow
+In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Blob Storage to an Blob Storage sink using mapping data flow. The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow
 
 In this tutorial, you do the following steps:
 1. Create Linked Service and Datasets.
