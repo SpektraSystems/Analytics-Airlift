@@ -127,9 +127,8 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
 5. Pipeline debug of Data Flow activities uses the active debug cluster but still take at least a minute to initialize. You can track the progress via the Output tab. Once the run is successful, click on the eyeglasses icon to open the monitoring pane.
    <img src="images/output.jpg"/><br/>
 6. In the monitoring pane, you can see the number of rows and time spent in each transformation step.
-   <img src="images/etl02.jpg"/><br/>
-7. Click on a transformation to get detailed information about the columns and partitioning of the data.
    <img src="images/monitor.jpg"/><br/>
-8. Pipeline debug of Data Flow activities uses the active debug cluster but still take at least a minute to initialize. You can track the progress via the Output tab. Once the run is successful, click on the eyeglasses icon to open the monitoring pane.<br/>
-9. Go back to your Azure portal and open Blob Storage -> Containers -> sinkdata -> staged_sink. Download the **Product.csv** using the URL and check the CSV file result<br/>
+7. Click on a transformation to get detailed information about the columns and partitioning of the data.
+   <img src="images/monitor1.jpg"/><br/>
+8. Go back to your Azure portal and open Blob Storage -> Containers -> sinkdata -> staged_sink. Download the **Product.csv** using the URL and check the CSV file result<br/>
   <img src="images/etl38.jpg"/><br/>
