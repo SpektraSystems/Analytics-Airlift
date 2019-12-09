@@ -106,7 +106,7 @@ multiply(price, 2)
    <img src="images/etl20.jpg"/><br/>
 17. Next, you want to add a **Sink** transformation under Destination.<br/>
    <img src="images/etl21.jpg"/><br/>
-18. Name your sink Sink. Select the **sinkRawFiles_Dataset** dataset from drop down.<br/>
+18. Name your Output stream as **Sink**. Select the **sinkRawFiles_Dataset** dataset from drop down.<br/>
    <img src="images/etl32.jpg"/><br/>
 19. Click on **Publish All** for saving the all solution.
 
