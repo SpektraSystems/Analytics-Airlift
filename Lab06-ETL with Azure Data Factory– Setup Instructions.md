@@ -118,7 +118,7 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
 
 1. Add Pipeline **Factory Resources**.<br/>
    <img src="images/etl33.jpg"/><br/>
-2. In the Activities pane, expand the **Move and Transform** accordion. Drag and drop the Data Flow activity from the pane to the pipeline canvas. Name the pipeline as **pipeline**.<br/>
+2. In the Activities pane, expand the **Move and Transform** accordion. Drag and drop the Data Flow activity from the pane to the pipeline canvas.<br/>
    <img src="images/etl37.jpg"/><br/>
 3. In the Adding Data Flow pop-up, select **Use existing Data Flow** and select **dataflow** from drop down. Click Finish when done.<br/>
    <img src="images/etl34.jpg"/><br/>
