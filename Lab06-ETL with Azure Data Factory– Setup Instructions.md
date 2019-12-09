@@ -85,7 +85,7 @@ toInteger(product_id)
 ``
    <img src="images/etl16.jpg"/><br/>
    <img src="images/etl27.jpg"/><br/>
-9. Add other columns **product_id**, **category**, **brand**, **model**, **size**, **price** and **doublePrice** also.<br/>
+9. Add other columns **product_id**, **category**, **brand**, **model**, **size**, and **price**. Add new colunm as **doublePrice** and in expression field give **toFloat(price)** as a value.<br/>
    <img src="images/etl28.jpg"/><br/>
 10. The next transformation you'll add is an **Select** transformation under **Schema modifier**.<br/>
    <img src="images/etl29.jpg"/><br/>
