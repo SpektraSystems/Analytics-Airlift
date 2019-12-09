@@ -66,8 +66,9 @@ c.	**Sink dataset** – for copying into the sink destination location<br/>
 
 1. In the factory top bar, slide the Data Flow debug slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see Debug Mode.<br/>
    <img src="images/etl26.jpg"/><br/>
-2. In Factory Resouces, select Data flows and add **New Data flow**. Once you create your Data Flow, you'll be automatically sent to the data flow canvas. In this step, you'll build a data flow that takes the Product.csv in Blob storage.<br/>
-   <img src="images/etl13.jpg"/><br/><br/>
+2. In Factory Resouces, select Data flows and add **New Data flow**. Select **Mapping Data Flow** while creating DataFlow. Once you create your Data Flow, you'll be automatically sent to the data flow canvas. In this step, you'll build a data flow that takes the Product.csv in Blob storage.<br/>
+   <img src="images/etl03.jpg"/><br/>
+   <img src="images/etl13.jpg"/><br/>
 3. In the data flow canvas, add a source by clicking on the **Add Source** box<br/>
    * Name: **Give any name**<br/>
    <img src="images/etl14.jpg"/><br/>
