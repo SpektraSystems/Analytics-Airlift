@@ -114,14 +114,14 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
    <img src="images/etl37.jpg"/><br/>
 3. In the Adding Data Flow pop-up, select **Use existing Data Flow** and select **dataflow** from drop down. Click Finish when done.<br/>
    <img src="images/etl34.jpg"/><br/>
-4. Go to the pipeline canvas. Click Debug to trigger a debug run.<br/>
+4. Go to the pipeline canvas. Click **Debug** to trigger a debug run.<br/>
    <img src="images/debug.jpg"/><br/>
-5. Pipeline debug of Data Flow activities uses the active debug cluster but still take at least a minute to initialize. You can track the progress via the Output tab. Once the run is successful, click on the eyeglasses icon to open the monitoring pane.
+5. Pipeline debug of **Data Flow** activities uses the active debug cluster but still take at least a minute to initialize. You can track the progress via the Output tab. Once the run is successful, click on the eyeglasses icon to open the monitoring pane.
    <img src="images/output.jpg"/><br/>
 6. In the monitoring pane, you can see the number of rows and time spent in each transformation step.
    <img src="images/monitor.jpg"/><br/>
 7. Click on a transformation to get detailed information about the columns and partitioning of the data.
    <img src="images/monitor1.jpg"/><br/>
-8. Go back to your Azure portal and open Blob Storage -> Containers -> sinkdata. Download the **Product.csv** using the URL and check the CSV file result<br/>
+8. Go back to your **Azure portal** and open **Blob Storage** -> **Containers** -> **sinkdata**. Download the **Product.csv** using the **URL** and check the CSV file result<br/>
   <img src="images/product.jpg"/><br/>
   <img src="images/etl38.jpg"/><br/>
