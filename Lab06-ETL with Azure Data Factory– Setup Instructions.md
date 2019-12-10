@@ -122,6 +122,6 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
    <img src="images/monitor.jpg"/><br/>
 7. Click on a transformation to get detailed information about the columns and partitioning of the data.
    <img src="images/monitor1.jpg"/><br/>
-8. Go back to your Azure portal and open Blob Storage -> Containers -> sinkdata -> staged_sink. Download the **Product.csv** using the URL and check the CSV file result<br/>
+8. Go back to your Azure portal and open Blob Storage -> Containers -> sinkdata. Download the **Product.csv** using the URL and check the CSV file result<br/>
   <img src="images/product.jpg"/><br/>
   <img src="images/etl38.jpg"/><br/>
