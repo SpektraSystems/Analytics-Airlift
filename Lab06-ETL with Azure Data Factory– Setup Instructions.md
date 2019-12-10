@@ -11,14 +11,7 @@ In this lab we will go through the necessary dataflow transformations and action
 * Create new column doublePrice, and multiply the price column by 2. This is for demonstration, in reality you would populate the field using some business logic to make it more meaningful
 * Write the transformed DataFrame in CSV as Product.csv
 
-  <img src="images/etl01.jpg"/><br/>
-
- You will do the following steps:
-1. Create Linked Service and Datasets.
-2. Build a mapping data flow with six transformations.
-3. Create a pipeline with a Data Flow activity.
-4. Test run the pipeline.
-5. Check a Data Flow activity Result in Blob Storage
+  <img src="images/etl01.jpg"/>
 
 ## Exercise 1.1 - Create Linked Service and Datasets
 
