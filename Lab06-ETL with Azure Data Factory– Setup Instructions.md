@@ -54,7 +54,7 @@ c.	**Sink dataset** – for copying into the sink destination location<br/>
    Select the **First Row as Header**<br/>
    <img src="images/sink.jpg"/><br/><br/>
    
-## Exercise 1.2 Build a mapping data flow with six transformations.
+## Exercise 1.2 Build a mapping data flow with six transformations
 
 1. In the factory top bar, slide the Data Flow debug slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see Debug Mode.<br/>
    <img src="images/etl26.jpg"/><br/>
@@ -104,7 +104,7 @@ multiply(price, 2)
 
 Now you've finished building your data flow. You're ready to run it in your pipeline.
 
-### Exercise 3 Running and monitoring the Data Flow
+## Exercise 3 Running and monitoring the Data Flow
 
 You can debug a pipeline before you publish it. In this step, you're going to trigger a debug run of the data flow pipeline. While data preview doesn't write data, a debug run will write data to your sink destination.<br/>
 
