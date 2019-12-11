@@ -11,4 +11,6 @@ Please note: This is a rough agenda, and the schedule is subject to change pendi
 - SQLDW - Query tuning lab
   - [Lab 1.4: SQLDW - Query Performance Tuning](https://github.com/SpektraSystems/Analytics-Airlift/blob/master/Lab04%20-%20SQLDW%20Query%20Performance%20Tuning.md)
 - Databricks - ETL
-  - Coming Soon!
+  - [Lab 1.5: ETL with Azure Databricks – Setup Instructions.md](https://github.com/SpektraSystems/Analytics-Airlift/blob/master/Lab05%20-%20ETL%20with%20Azure%20Databricks%20%E2%80%93%20Setup%20Instructions.md)
+- DataFlow - ETL
+  - [Lab 1.6: ETL with Dataflow – Setup Instructions.md](https://github.com/SpektraSystems/Analytics-Airlift/blob/master/Lab06-ETL%20with%20Azure%20Data%20Factory%E2%80%93%20Setup%20Instructions.md)
