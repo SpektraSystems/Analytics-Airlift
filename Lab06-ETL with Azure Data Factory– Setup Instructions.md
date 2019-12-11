@@ -4,7 +4,7 @@
 
 In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Blob Storage to an Blob Storage sink using mapping data flow. The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow.
 
-In this lab we will go through the necessary dataflow transformations and actions to return a DataFrame which satisfies following requirements:
+Also, we will go through the necessary dataflow transformations and actions to return a DataFrame which satisfies following requirements:
 * Select just the product_id, category, brand, model, size and price columns
 * Rename product_id to prodID
 * Sort by the price column in descending order
