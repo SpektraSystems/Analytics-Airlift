@@ -75,8 +75,8 @@ We now want to use the GUI to create another copy activity in the same pipeline 
 4.	Click on the **Azure SQL Database** tile.
    <img src="images/ex13.jpg"/><br/>
 5.	Click **Continue**.
-6.	In the right pane you should see the properties to configure the **Azure SQL Database** account.We will name this linked service AzureSqlData-base-Source and using the Default runtime. Use the following  
- 
+6.	In below image, you should see the properties to configure the **Azure SQL Database** account. We will name this linked service AzureSqlData-base-Source and using the Default runtime. We will use a predefined Azure SQL Database for this lab.
+
   * Account Selection Method -> **Manual**
   * Fully qualified domain name ->**adlabserver.database.windows.net**
   * Database name -> **adflab**
