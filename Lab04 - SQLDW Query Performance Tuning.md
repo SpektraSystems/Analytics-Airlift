@@ -124,7 +124,7 @@ Again, your user comes to you with questions, complaining that they are joining 
 3.	Change directory to Lab sub folder.<br/>
 4.	Run “RunExercise.ps1” script with following parameters<br/>
 ``
-\RunExercise.ps1 -Name Exercise2 -Type Slow
+.\RunExercise.ps1 -Name Exercise2 -Type Slow
 ``
     <img src="images/sql10.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
