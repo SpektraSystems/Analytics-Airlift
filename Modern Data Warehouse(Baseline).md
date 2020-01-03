@@ -6,13 +6,13 @@ Part 1 – Loading Blob storage data into Azure SQL Data Warehouse<br/>
 Part 2 – Load Dimension tables<br/>
 Part 3 – Create Partitioned Fact Table<br/>
 Part 4 – Load data into partitioned staging tables from WASB<br/>
-Part 5 – Copy Data into Correctly formatted tables via CTAS<br/>
+Part 5 – Load the sample dataset to your server<br/>
 Part 6 – Dynamic Management Views<br/>
-Part 7: Queries running slowly<br/>
-Part 8: Joins<br/>
-Part 9: Troubleshooting<br/>
-Part 10: Query performance improvements<br/>
-Part 11: Query analysis
+Part 7 – Queries running slowly<br/>
+Part 8 – Joins<br/>
+Part 9 – Troubleshooting<br/>
+Part 10 – Query performance improvements<br/>
+Part 11 – Query analysis
 
 ## Summary
 Over the course of this lab you will look for inefficiencies that are causing sub-optimal performance.<br/>
@@ -156,7 +156,7 @@ Open the 5 -**LoadWithPartitionSwitch.dsql** file that can be found in the **Lab
 2. To switch the partitions on your empty fact table. Run the following script that is part of 5 -**LoadWithPartitionSwitch.dsql** script and replace it with existing content in query window.
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld13.jpg"/><br/>
 
-## Part 6: Load the sample dataset to your server
+## Part 5 – Load the sample dataset to your server
 
 This part requires you to load a new data source to the Azure Data Warehouse server created in the previous parts. Please follow below steps to load the sample dataset to your server. The login that you use for running this script should have “Create Login” permission on your server! This script will create multiple versions of customer, orders, lineitem, part, partsupp, supplier, nation and region tables. These tables will be used during your lab. You will also edit the PowerShell script and add your server and database names. This will be used during exercises
 
@@ -184,7 +184,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass
 9.	Replace **<your_database>** with your **database** name.<br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql02.jpg"/><br/>
 
-### Part 6: Queries running slowly
+### Part 6 – Queries running slowly
 Your user comes to you and says “My query is running slow. I’m not sure why, because I’m not selecting very many rows. Can you help me figure out why?
 
 1.	Open a PowerShell window.<br/>
@@ -251,7 +251,7 @@ At step 11, you want to pick out the long-running step based on total_elapsed_ti
 At step 14, you should be able to use exec_requests in the same way you did before to get the query text and see that we are now querying table 'dbo.lineitem_3'. You should look at sys.tables or object explorer in SSMS/SSDT to see the differences between this table and the previous one. You should notice that lineitem_3 is a distributed table whereas Lineitem_2 was an external table. The new plan in request_steps no longer has the Hadoop shuffle because the data is already in SQLDW.<br/><br/>
 This should illustrate that when you are going to be using external tables repeatedly, it is much more efficient if you first import the table(s) into SQLDW then run the queries on the local tables. Otherwise, every query that touches the external table will have to import the table into tempdb as part of the plan before being able to execute the query.
 
-## Part 7: Joins
+## Part 7 – Joins
 Now that you’ve got the hang of things, let’s try the same process on the next exercise. 
 Again, your user comes to you with questions, complaining that they are joining two of their most important tables together, and SQL DW just isn’t performing as well as they had expected. 
 
@@ -295,7 +295,7 @@ At step 10, you can see that we are performing 5 broadcast moves and 1 shuffle m
 At step 12, you are comparing the fast plan to the slow plan. You can see in the fast plan that we now have 4 broadcast moves (instead of 5) and 1 shuffle. The table that is no longer being broadcasted is that large table we noticed in step 10. We can get the tables being queries from exec_requests, then look at sys.tables or object explorer to see what kind of tables they are. You will see that the fast version has all hash distributed tables, while the slow version has round robin tables.<br/><br/>
 In general, you want large fact tables to be distributed tables. In this query both the orders and lineitem tables are large fact tables. If we are joining them together then it is best if they are distribution-compatible, which means distributed on the same key. This way each distribution has just a small slice of data to work with. In the fast version, both of these tables are distributed on orderkey. Round robin tables are never distribution-compatible, so the slow plan has to perform some sort of movement, like a broadcast, to make them distribution compatible before performing the join. The fast version shuffle will be faster because of the smaller input data volume.
 
-## Part 8: Troubleshooting Nuke)
+## Part 8 – Troubleshooting Nuke)
 Again, your user comes to you with questions, saying “I’ve just loaded my data and my queries are running slow than on SQL Server! What am I missing here?”
 
 1.	Open a PowerShell window.<br/>
@@ -335,7 +335,7 @@ In step 12, you can see that this large broadcast is no longer there. If you com
 Further, if you run the query provided to get details about the table, you will see that for lineitem_1, the CTL_row_count is 1,000, but the cmp_row_count is ~60 million. 1,000 is the default value for statistics on the control node, so this means that statistics were never manually created. The distributed plan was created assuming it could broadcast this table because there were only 1,000 rows, but in reality there were 60 million rows, which caused our long-running step.<br/><br/>
 This illustrates how the absence of statistics or statistics not being up to date can affect the distributed plan.<br/>
 
-## Part 9: Query performance improvements
+## Part 9 – Query performance improvements
 Now that your user has got all of their data loaded and organized they are trying out some of their more complex queries.  Check this exercise to see if there are any improvements they can make to decrease their query runtime.
 
 1.	Open a PowerShell window.<br/>
