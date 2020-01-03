@@ -166,9 +166,6 @@ This part requires you to load a new data source to the Azure Data Warehouse ser
 cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Prep"
 ``
 3.      Run **PrepLab.ps1** script with you Azure Data Warehouse details. This will take 10-15 minutes.<br/>
-``
-./PrepLab.ps1
-``
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql1.jpg"/><br/>
 4.      Run the following command for changing the PowerShell execution policies for Windows computers.<br/>
 ``
