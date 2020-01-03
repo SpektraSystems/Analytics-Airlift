@@ -2,7 +2,6 @@
 
 ### Table of Contents
 Summary<br/>
-Pre-requisites: What you need to get started<br/>
 Part 1 – Loading Blob storage data into Azure SQL Data Warehouse<br/>
 Part 2 – Load Dimension tables<br/>
 Part 3 – Create Partitioned Fact Table<br/>
@@ -24,13 +23,6 @@ In each of the examples, there will be two versions of same query. One that is r
 These articles to help you solve the scenarios presented in this lab.<br/>
 •	Query investigation: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-managemonitor/<br/>
 •	Best Practices: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-best-practices/
-
-## Pre-requisites: What you need to get started
-
-This lab requires you to load a new data source to the Azure Data Warehouse server created in the previous labs. Please follow below steps to load the sample dataset to your server.
-The login that you use for running this script should have “Create Login” permission on your server!
-This script will create multiple versions of customer, orders, lineitem, part, partsupp, supplier, nation and region tables. These tables will be used during your lab.
-You will also edit the PowerShell script and add your server and database names. This will be used during exercises.
     
 ### Part 1 – Loading Blob storage data into Azure SQL Data Warehouse
 We have created our SQL Data Warehouse and now we want to load data into it.  We can do this through the traditional ways of ETL and tooling such as SQL Server Integration Services or third-party tooling.  However, today we are going to use Polybase. Your source data has been precreated and is in your Azure Blob Storage account.<
