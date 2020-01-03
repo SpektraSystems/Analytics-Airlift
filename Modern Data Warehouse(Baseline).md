@@ -3,7 +3,7 @@
 ### Table of Contents
 Summary<br/>
 Pre-requisites: What you need to get started<br/>
-Part 1 – Loading data into Azure SQL Data Warehouse<br/>
+Part 1 – Loading Blob storage data into Azure SQL Data Warehouse<br/>
 Part 2 – Load Dimension tables<br/>
 Part 3 – Create Partitioned Fact Table<br/>
 Part 4 – Load data into partitioned staging tables from WASB<br/>
@@ -31,28 +31,6 @@ This lab requires you to load a new data source to the Azure Data Warehouse serv
 The login that you use for running this script should have “Create Login” permission on your server!
 This script will create multiple versions of customer, orders, lineitem, part, partsupp, supplier, nation and region tables. These tables will be used during your lab.
 You will also edit the PowerShell script and add your server and database names. This will be used during exercises.
-
-1.	Open a PowerShell window in your virtual machine.<br/>
-2.	Change directory to Query Performance Tuning lab content folder with given command:<br/>
-``
-cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Prep"
-``
-3.	Change directory to Prep sub folder.<br/>
-4.	Run PrepLab.ps1 script with you Azure Data Warehouse details. This will take 10-15 minutes.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql1.jpg"/><br/>
-5.  Run the following command for changing the PowerShell execution policies for Windows computers.<br/>
-``
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass
-``
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql2.jpg"/><br/>
-
-6.	Open your **Query Performance Tuning Lab** content folder.<br/>
-7.	Change directory to **C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Lab>** sub folder.<br/>
-8.	Edit “RunExercise.ps1” script.<br/>
-9.	Replace **<your_server>** with your **server** name. (Without database.windows.net)<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql01.jpg"/><br/>
-10.	Replace **<your_database>** with your **database** name.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql02.jpg"/><br/>
     
 ### Part 1 – Loading Blob storage data into Azure SQL Data Warehouse
 We have created our SQL Data Warehouse and now we want to load data into it.  We can do this through the traditional ways of ETL and tooling such as SQL Server Integration Services or third-party tooling.  However, today we are going to use Polybase. Your source data has been precreated and is in your Azure Blob Storage account.<
@@ -186,12 +164,40 @@ Open the 5 -**LoadWithPartitionSwitch.dsql** file that can be found in the **Lab
 2. To switch the partitions on your empty fact table. Run the following script that is part of 5 -**LoadWithPartitionSwitch.dsql** script and replace it with existing content in query window.
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld13.jpg"/><br/>
 
-## Part 6: Queries running slowly
+## Part 6: Load the sample dataset to your server
+
+This part requires you to load a new data source to the Azure Data Warehouse server created in the previous parts. Please follow below steps to load the sample dataset to your server. The login that you use for running this script should have “Create Login” permission on your server! This script will create multiple versions of customer, orders, lineitem, part, partsupp, supplier, nation and region tables. These tables will be used during your lab. You will also edit the PowerShell script and add your server and database names. This will be used during exercises
+
+1.	Open a PowerShell window in your virtual machine.<br/>
+2.	Change directory to **Query Performance Tuning** in lab content folder using given command:<br/>
+``
+cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Prep"
+``
+3.      Run **PrepLab.ps1** script with you Azure Data Warehouse details. This will take 10-15 minutes.<br/>
+``
+./PrepLab.ps1
+``
+    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql1.jpg"/><br/>
+4.      Run the following command for changing the PowerShell execution policies for Windows computers.<br/>
+``
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass
+``
+    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql2.jpg"/><br/>
+
+5.	Open your **Query Performance Tuning Lab** content folder.<br/>
+6.	Change directory to **C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Lab>** sub folder.<br/>
+7.	Edit “RunExercise.ps1” script.<br/>
+8.	Replace **<your_server>** with your **server** name. (Without database.windows.net)<br/>
+    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql01.jpg"/><br/>
+9.	Replace **<your_database>** with your **database** name.<br/>
+    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql02.jpg"/><br/>
+
+### Part 6: Queries running slowly
 Your user comes to you and says “My query is running slow. I’m not sure why, because I’m not selecting very many rows. Can you help me figure out why?
 
 1.	Open a PowerShell window.<br/>
 2.	Change directory to **Query Performance Tuning lab** content folder.<br/>
-3.	Change directory to Lab sub folder.<br/>
+3.	Change directory to **Lab** sub folder.<br/>
 4.	Run **RunExercise.ps1** script with following parameters. This will execute a query on your server and show the result<br/>
 
 ``
