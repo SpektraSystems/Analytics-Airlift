@@ -140,7 +140,7 @@ Note:
 In the next set of steps we are going to take the staging tables we created in part 3 and prep the data for a partition switch.
 
 1. Open the **4 - PartitionStagingTables.dsql** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg/><br/>
+    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/Partition.jpg"/><br/>
 2. To complete the staging table prep. Copy the script and replace it with existing content in query window <br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld14.jpg"/><br/>
