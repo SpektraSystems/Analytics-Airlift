@@ -162,12 +162,15 @@ This part requires you to load a new data source to the Azure Data Warehouse ser
 
 1.	Open a PowerShell window in your virtual machine.<br/>
 2.	Change directory to **Query Performance Tuning** in lab content folder using given command:<br/>
+
 ``
 cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Prep"
 ``
+<br/>
 3.      Run **PrepLab.ps1** script with you Azure Data Warehouse details. This will take 10-15 minutes.<br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql1.jpg"/><br/>
 4.      Run the following command for changing the PowerShell execution policies for Windows computers.<br/>
+
 ``
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass
 ``
