@@ -1,4 +1,4 @@
-# Modern-Data-Warehouse-Baseline
+# Modern Data Warehouse (Analytics in a Day)
 
 ### Table of Contents
 Summary<br/>
