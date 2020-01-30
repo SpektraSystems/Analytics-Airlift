@@ -29,11 +29,11 @@ We have created our SQL Data Warehouse and now we want to load data into it.  We
  
 1. From virtual machine that is given in your environment, navigate to the **Azure portal** open the browser and navigate to https://portal.azure.com<br/>
 2. Open the **Azure SQL Data Warehouse** blade from the tile on the portal dashboard.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld1.jpg"/><br/>
+    
 3. Looking at the **Overview** blade you can see the **Common Tasks** as shown in the screen shot.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld2.jpg"/><br/>
+    ![](images/visualstudio.png)
 4. Click the **Open in Visual Studio** button.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld3.jpg"/><br/>
+    ![](images/openinvisualstudio.png)
 ```
 Note: Before opening Visual Studio click on Configure your firewall to make sure that your ClientIP has been added to the rules.
 ```
@@ -43,8 +43,8 @@ Note: Before opening Visual Studio click on Configure your firewall to make sure
 6. Sign in with your given **Azure Credentials**.<br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld5.jpg"/><br/>
 7. Fill in the **password** specified in **Environment Detail Page**.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/password.jpg"/><br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld6.jpg"/><br/>
+    ![](images/sqldwimage1.png)
+    ![](images/connect.png)
 8. Click **Connect**.<br/>
 9. **Expand** the object tree within the **SQL Server** object explorer pane.<br/>
 10. Right click the database name and select **New Query**.  A new query window will open<br/>
