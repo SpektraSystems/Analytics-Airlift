@@ -131,7 +131,7 @@ To effectively leverage a partition swap load, a table has to exist with an exis
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/initial.jpg"/><br/>
 5. Copy the 3 - **InitialFactLoad.dsql** script and replace it with existing content in query window <br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld12.jpg"/><br/>
+   ![](images/query4.png)
 ```
 Note: 
 •	We are using Round_Robin distribution and a Heap because we want to ensure that the load occurs as quickly as possible. Remember ELT.
