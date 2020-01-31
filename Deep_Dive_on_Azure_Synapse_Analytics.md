@@ -177,7 +177,11 @@ cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Pre
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass
 ``
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql2.jpg"/><br/>
-
+    
+* Server name: **tech-immersion-sql-dw-xxxxxx** (replace xxxxxx with your user id)
+* Database name: **tech-immersion-sql-dw**
+* Username: **ti-admin**
+* Password: **Password.1!!**
 5.	Open your **Query Performance Tuning Lab** content folder.<br/>
 6.	Change directory to **C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Lab>** sub folder.<br/>
 7.	Edit “RunExercise.ps1” script.<br/>
