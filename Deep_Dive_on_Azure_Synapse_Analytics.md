@@ -55,7 +55,7 @@ Note: Before opening Visual Studio click on Configure your firewall to make sure
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld.jpg"/><br/>
 12. Copy the content of **Setup** script and paste it in new query window.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld9.jpg"/><br/>
+     ![](images/query1.png)
 13. Execute the **Query**.
 
 ### Part 2 – Load Dimension tables
@@ -65,7 +65,7 @@ Now, we have created our external data source we can query and load the data we 
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/dimensions.jpg"/><br/>
 2. Copy the **Dimensions.sql** script and replace it with the existing script in query window.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld10.jpg"/><br/>
+    ![](images/query2.png)
 2. Execute the **Query**.<br/>
 3. Go through the Content inside the dimension for understanding the script:<br/>
 a. Using the following script to create an external table called Aircraft_IMPORT
@@ -125,7 +125,7 @@ To effectively leverage a partition swap load, a table has to exist with an exis
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/create.jpg"/><br/>
 2. Copy the 2 - **Create Fact Table.dsql** script and replace it with existing content in query window.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld11.jpg"/><br/>
+    ![](images/query3.png)
 3. To load the staging tables from WASB into SQDL DW. 
 4. Open the **3 - InitialFactLoad.dsql** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
