@@ -176,7 +176,7 @@ cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Pre
 * Username: **ti-admin**
 * Password: **Password.1!!**
 
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql1.jpg"/><br/>
+    ![](images/psscript.png)
 4.      Run the following command for changing the PowerShell execution policies for Windows computers.<br/>
 
 ``
