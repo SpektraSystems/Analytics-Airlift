@@ -206,7 +206,7 @@ Your user comes to you and says “My query is running slow. I’m not sure why,
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql4.jpg"/><br/>
     
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql3.jpg"/><br/>
+    ![](images/tilogin.png)
     
 6.	Check the query execution details with using DMVs.<br/>
 ```
