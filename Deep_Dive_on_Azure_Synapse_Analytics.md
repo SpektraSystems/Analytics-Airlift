@@ -170,6 +170,12 @@ cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Pre
 ``
 <br/>
 3.      Run **PrepLab.ps1** script with you Azure Data Warehouse details. This will take 10-15 minutes.<br/>
+
+* Server name: **tech-immersion-sql-dw-xxxxxx** (replace xxxxxx with your user id)
+* Database name: **tech-immersion-sql-dw**
+* Username: **ti-admin**
+* Password: **Password.1!!**
+
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql1.jpg"/><br/>
 4.      Run the following command for changing the PowerShell execution policies for Windows computers.<br/>
 
@@ -178,10 +184,6 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass
 ``
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql2.jpg"/><br/>
     
-* Server name: **tech-immersion-sql-dw-xxxxxx** (replace xxxxxx with your user id)
-* Database name: **tech-immersion-sql-dw**
-* Username: **ti-admin**
-* Password: **Password.1!!**
 5.	Open your **Query Performance Tuning Lab** content folder.<br/>
 6.	Change directory to **C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Lab>** sub folder.<br/>
 7.	Edit “RunExercise.ps1” script.<br/>
