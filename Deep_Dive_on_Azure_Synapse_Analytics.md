@@ -145,7 +145,7 @@ In the next set of steps we are going to take the staging tables we created in p
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/Partition.jpg"/><br/>
 2. To complete the staging table prep. Copy the script and replace it with existing content in query window <br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld14.jpg"/><br/>
+    ![](images/query5.png)
 
 ### Part 5 – Copy Data into Correctly formatted tables via CTAS
 Now that we have a set of partitioned tables and an empty fact table, we can start doing partition switches into the table.
@@ -156,7 +156,7 @@ Open the 5 -**LoadWithPartitionSwitch.dsql** file that can be found in the **Lab
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/load.jpg"/><br/>
 2. To switch the partitions on your empty fact table. Run the following script that is part of 5 -**LoadWithPartitionSwitch.dsql** script and replace it with existing content in query window.
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld13.jpg"/><br/>
+    ![](images/query6.png)
 
 ## Part 6 – Load the sample dataset to your server
 
