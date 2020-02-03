@@ -61,7 +61,7 @@ Note: Before opening Visual Studio click on Configure your firewall to make sure
 ### Part 2 – Load Dimension tables
 Now, we have created our external data source we can query and load the data we have in the Azure Blob Store.In the following lab we will load dimension tables into our SQL DW. Dimension tables are often a good first step because they are relatively small and this will allow you to gain an understanding of how to load data into SQL DW from WASB. 
 
-1. Open the **Dimensions** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
+1. Open the **Dimensions** file that can be found **C:\LabContent\Analytics-Airlift-master\Day 1\05.SQLDW - Loading lab** from visual studio.<br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/dimensions.jpg"/><br/>
 2. Copy the **Dimensions.sql** script and replace it with the existing script in query window.<br/>
@@ -121,13 +121,13 @@ Dim_Aircraft (id, type, manufacturer)
 ### Part 3 – Create Partitioned Fact Table
 To effectively leverage a partition swap load, a table has to exist with an exisiting partition scheme. To do this you must create an empty table with a partitioning scheme.
 
-1. To create an empty table partioned by DateID. Open the **2 - Create Fact Table** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
+1. To create an empty table partioned by DateID. Open the **2 - Create Fact Table** file that can be found in the **C:\LabContent\Analytics-Airlift-master\Day 1\05.SQLDW - Loading lab**  from visual studio.<br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/create.jpg"/><br/>
 2. Copy the 2 - **Create Fact Table.dsql** script and replace it with existing content in query window.<br/>
     ![](images/query3.png)
 3. To load the staging tables from WASB into SQDL DW. 
-4. Open the **3 - InitialFactLoad.dsql** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
+4. Open the **3 - InitialFactLoad.dsql** file that can be found in the **C:\LabContent\Analytics-Airlift-master\Day 1\05.SQLDW - Loading lab** from visual studio.<br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/initial.jpg"/><br/>
 5. Copy the 3 - **InitialFactLoad.dsql** script and replace it with existing content in query window <br/>
@@ -141,7 +141,7 @@ Note:
 ### Part 4 – Load data into partitioned staging tables from WASB
 In the next set of steps we are going to take the staging tables we created in part 3 and prep the data for a partition switch.
 
-1. Open the **4 - PartitionStagingTables.dsql** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
+1. Open the **4 - PartitionStagingTables.dsql** file that can be found in the **C:\LabContent\Analytics-Airlift-master\Day 1\05.SQLDW - Loading lab** from visual studio.<br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/Partition.jpg"/><br/>
 2. To complete the staging table prep. Copy the script and replace it with existing content in query window <br/>
