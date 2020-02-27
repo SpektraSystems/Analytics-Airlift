@@ -23,7 +23,24 @@ In each of the examples, there will be two versions of same query. One that is r
 These articles to help you solve the scenarios presented in this lab.<br/>
 •	Query investigation: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-managemonitor/<br/>
 •	Best Practices: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-best-practices/
-    
+
+## Part 0 - Verify pre requisite environment
+
+Follow these steps to restart the virtual machine and resume a Azure Synapse Analytics(If you are using an automated or provided lab environment, please perform Task 0, else you can skip to Task 1).
+
+1. Within the Azure Portal, navigate to the resource group blade and select **jumpvm**.
+<img src="media/rg.jpg"/><br/>
+2. On the **Overview** pane, click the **Start** button.
+<img src="media/start.jpg"/><br/>
+3. Wait a few moment, and you will get the notification for vitual machine start.
+4. Select the **Azure Synapse SQL Pool** from the resource group page.
+<img src="media/rg1.jpg"/><br/>
+5. To resume the data warehouse, click the **Resume** button.
+<img src="media/resume.jpg"/><br/>
+6. A confirmation question appears asking if you want to continue. Click **Yes**.
+<img src="media/resumedw.jpg"/><br/>
+7. On the Azure Synapse SQL Pool page, notice Status is **Online**.
+
 ### Part 1 – Loading Blob storage data into Azure SQL Data Warehouse
 We have created our SQL Data Warehouse and now we want to load data into it.  We can do this through the traditional ways of ETL and tooling such as SQL Server Integration Services or third-party tooling.  However, today we are going to use Polybase. Your source data has been precreated and is in your Azure Blob Storage account.
  
