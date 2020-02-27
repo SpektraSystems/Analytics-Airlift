@@ -2,6 +2,7 @@
 
 ### Table of Contents
 Summary<br/>
+Part 0 – Verify pre requisite environment<br/>
 Part 1 – Loading Blob storage data into Azure SQL Data Warehouse<br/>
 Part 2 – Load Dimension tables<br/>
 Part 3 – Create Partitioned Fact Table<br/>
