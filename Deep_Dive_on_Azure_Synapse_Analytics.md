@@ -30,16 +30,16 @@ These articles to help you solve the scenarios presented in this lab.<br/>
 Follow these steps to restart the virtual machine and resume a Azure Synapse Analytics(If you are using an automated or provided lab environment, please perform Task 0, else you can skip to Task 1).
 
 1. Within the Azure Portal, navigate to the resource group blade and select **jumpvm**.
-<img src="media/rg.jpg"/><br/>
+<img src="images/rg.jpg"/><br/>
 2. On the **Overview** pane, click the **Start** button.
-<img src="media/start.jpg"/><br/>
+<img src="images/start.jpg"/><br/>
 3. Wait a few moment, and you will get the notification for vitual machine start.
 4. Select the **Azure Synapse SQL Pool** from the resource group page.
-<img src="media/rg1.jpg"/><br/>
+<img src="images/rg1.jpg"/><br/>
 5. To resume the data warehouse, click the **Resume** button.
-<img src="media/resume.jpg"/><br/>
+<img src="images/resume.jpg"/><br/>
 6. A confirmation question appears asking if you want to continue. Click **Yes**.
-<img src="media/resumedw.jpg"/><br/>
+<img src="images/resumedw.jpg"/><br/>
 7. On the Azure Synapse SQL Pool page, notice Status is **Online**.
 
 ### Part 1 – Loading Blob storage data into Azure SQL Data Warehouse
