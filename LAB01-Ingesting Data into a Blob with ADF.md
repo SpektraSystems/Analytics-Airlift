@@ -33,7 +33,7 @@ We are going to use the portal to create the Azure Data Factory.
 2.	Select **New** on the left menu, select **Analytics**, and then select **Data Factory**.<br/>
     <img src="images/ex01.jpg"/><br/>
 3.	On the New data factory page, enter **ad-flab-adf** for Name.
-4.	Make sure you select **Version** as **V2 (Pre-view)**<br/>
+4.	Make sure you select **Version** as **V2 **<br/>
    <img src="images/ex02.jpg"/><br/>
 
 ``
@@ -168,11 +168,9 @@ And triggers can be used to execute the pipelines on a schedule or on-demand.
    <img src="images/ex29.jpg"/><br/>
 Set Start, End time for **Trigger**. Check **Activated** check-box. 
 13.	Click **Save**.
-14.	In the **Trigger** Run Parameter window,Set **fileName -> copyfromsql_@{formatDateTime(trigger().outputs.windowStartTime, 'yyyy-MM-dd')}**
+14.	In the **Trigger** Run Parameter window,Set **fileName ->** ``copyfromsql_@{formatDateTime(trigger().outputs.windowStartTime, 'yyyy-MM-dd')}``
 
-``
-Note: Expressions can be changed based on requirements. 
-``
+**Note**: Expressions can be changed based on requirements. 
 
 15.	Click **Finish**.
 Make sure you **‘Publish’** for the trigger to activated.
