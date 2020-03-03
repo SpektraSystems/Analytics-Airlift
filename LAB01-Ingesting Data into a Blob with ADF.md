@@ -155,7 +155,7 @@ And triggers can be used to execute the pipelines on a schedule or on-demand.
 2.	Name it as **filename**, let the **Value** be empty.<br/>
    <img src="images/ex24.jpg"/><br/>
 3.	Click **Save**
-4.	Navigate to **datasetBlobfromSQL -> Parameters -> File Name**, and set the value as **@pipeline().parameters.filename**<br/>
+4.	Navigate to **datasetBlobfromSQL -> Parameters -> File Name**, and set the value as ``@pipeline().parameters.filename``<br/>
    <img src="images/ex25.jpg"/><br/>
 8.	Navigate to the **CopyPipeline**, do a Test Run.<br/>
    <img src="images/ex26.jpg"/><br/>
