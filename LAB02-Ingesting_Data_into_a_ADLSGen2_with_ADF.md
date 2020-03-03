@@ -44,7 +44,7 @@ Note: The name of the Azure data factory must be globally unique. Please modify 
  6. Go to **ADLS Gen2 storage account** in azure portal
    <img src="images/gen1.jpg"/><br/>
 7. Create **File Systems** in **adlsg2** storage account as per below instructions:<br/>
-   a. Name: **inputsql**<br/> and Click **OK**<br/>
+   a. Name: **inputsql** and Click **OK**
    <img src="images/gen2.jpg"/><br/>  
    
 ### Part 2 – Connect ADF to a code repository to begin using the ADF GUI (Optional)
