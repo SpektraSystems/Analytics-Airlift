@@ -122,7 +122,7 @@ Note: This Query may change based on your table selection.
 14.	Click back on the **CopyPipeline**.<br/>
 15.	Click the **AzureSQLtoADLSGen2** copy activity.<br/>
 16.	Click the **Sink** Tab in the Copy Activity GUI.<br/>
-17.	Click the **+New** button next to **Source Dataset**.<br/>
+17.	Click the **+New** button next to **Sink Dataset**.<br/>
    <img src="images/sink.jpg"/><br/>
 18.	You should now see the list of sink dataset connectors.<br/>
 19.	Choose the **Azure Data lake Storage Gen2** dataset and click **Continue**.
