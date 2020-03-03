@@ -32,7 +32,7 @@ We are going to use the portal to create the Azure Data Factory.
 2.	Select **New** on the left menu, select **Analytics**, and then select **Data Factory**.<br/>
     <img src="images/ex01.jpg"/><br/>
 3.	On the New data factory page, enter **ad-flab-adf** for Name.
-4.	Make sure you select **Version** as **V2 (Pre-view)**<br/>
+4.	Make sure you select **Version** as **V2**<br/>
    <img src="images/ex03.jpg"/><br/>
 
 ``
@@ -41,7 +41,7 @@ Note: The name of the Azure data factory must be globally unique. Please modify 
 
 5.	After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the **Azure Data Factory** user interface (UI) application on a separate tab.<br/>
    <img src="images/ex02.jpg"/><br/>
- 6. Go to **ADLS Gen2 storage accountt** in azure portal
+ 6. Go to **ADLS Gen2 storage account** in azure portal
    <img src="images/gen1.jpg"/><br/>
 7. Create **File Systems** in **adlsg2** storage account as per below instructions:<br/>
    a. Name: **inputsql**<br/>
