@@ -164,13 +164,13 @@ At step 10, you can see that we are performing 5 broadcast moves and 1 shuffle m
 At step 12, you are comparing the fast plan to the slow plan. You can see in the fast plan that we now have 4 broadcast moves (instead of 5) and 1 shuffle. The table that is no longer being broadcasted is that large table we noticed in step 10. We can get the tables being queries from exec_requests, then look at sys.tables or object explorer to see what kind of tables they are. You will see that the fast version has all hash distributed tables, while the slow version has round robin tables.<br/><br/>
 In general, you want large fact tables to be distributed tables. In this query both the orders and lineitem tables are large fact tables. If we are joining them together then it is best if they are distribution-compatible, which means distributed on the same key. This way each distribution has just a small slice of data to work with. In the fast version, both of these tables are distributed on orderkey. Round robin tables are never distribution-compatible, so the slow plan has to perform some sort of movement, like a broadcast, to make them distribution compatible before performing the join. The fast version shuffle will be faster because of the smaller input data volume.
 
-## Part 3: Troubleshooting Nuke)
+## Part 3: Troubleshooting Nuke
 Again, your user comes to you with questions, saying “I’ve just loaded my data and my queries are running slow than on SQL Server! What am I missing here?”
 
 1.	Open a PowerShell window.<br/>
 2.	Change directory to Query Performance Tuning lab content folder.<br/>
 3.	Change directory to Lab sub folder.<br/>
-4.Run “RunExercise.ps1” script with following parameters<br/>
+4.Run **RunExercise.ps1** script with following parameters<br/>
 ``
 .\RunExercise.ps1 -Name Exercise3 -Type Slow
 ``
@@ -249,7 +249,7 @@ Now that you’ve helped your user with some of their initial issues, they’re 
 3.	Change directory to Lab sub folder.<br/>
 4.	Run “RunExercise.ps1” script with following parameters<br/>
 ``
-“.\RunExercise.ps1 -Name Exercise5 -Type Slow”
+.\RunExercise.ps1 -Name Exercise5 -Type Slow
 ``
     <img src="images/sql29.jpg"/><br/>
 5.	This script will create a workload simulation on your server. It will create 20 background jobs which will send queries to your system.<br/>
@@ -270,7 +270,7 @@ Hint: What can be changed to ensure these small queries run? After you investiga
 ``
 10.	You need to kill the background jobs before continuing.<br/>
 11.	Cancel the running process on current PowerShell window.<br/>
-12.	Run “.\Kill.ps1”<br/>
+12.	Run ``.\Kill.ps1``<br/>
     <img src="images/kill1.jpg"/><br/>
 13.	Make sure you close the PowerShell window.<br/>
 14.	Open a PowerShell window.<br/>
