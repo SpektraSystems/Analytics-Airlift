@@ -66,7 +66,7 @@ One option to be able to sync our code is to connect ADF to a code repository. T
 ### Part 3 – Setting up the Connections in the ADF GUI (Azure SQL Database -> ADLS)
 We now want to use the GUI to create another copy activity in the same pipeline to copy the Data from Azure SQL DB to Azure blob storage to be ready for transformation along with the earlier CSV file. Our first step is setting up the connections and linked services need for the source and destination.
 
-1.	In the Left Menu click the **Connections** menu item.
+1.	In the Left Menu go to **Author**click the **Connections** menu item.
 2.	In the right pane you need to **Select** working branch as **Master**.<br/>
    <img src="images/ex07.jpg"/><br/>
 3.	Click the **+New** button under **Linked** Services.<br/>
