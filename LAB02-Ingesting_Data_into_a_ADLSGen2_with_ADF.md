@@ -152,7 +152,7 @@ And triggers can be used to execute the pipelines on a schedule or on-demand.
 2.	Name it as **filename**, let the **Value** be empty.<br/>
    <img src="images/adls2.jpg"/><br/>
 3.	Click **Save**
-4.	Navigate to **datasetADLSgen2fromSQL -> Parameters -> File Name**, and set the value as ``@pipeline().parameters.filename``<br/>
+4.	Navigate to **datasetADLSgen2fromSQL -> Parameters -> filename**, and set the value as ``@pipeline().parameters.filename``<br/>
    <img src="images/adls3.jpg"/><br/>
 5.	Navigate to the **CopyPipeline** and **Debug** it.<br/>
    <img src="images/adls4.jpg"/><br/>
