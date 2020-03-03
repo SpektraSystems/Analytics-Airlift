@@ -156,7 +156,7 @@ And triggers can be used to execute the pipelines on a schedule or on-demand.
    <img src="images/adls3.jpg"/><br/>
 5.	Navigate to the **CopyPipeline** and **Debug** it.<br/>
    <img src="images/adls4.jpg"/><br/>
-6.	It will ask for an input parameter. Enter appropriate name and this will be used as the file name in sink.<br/>
+6.	It will ask for an input parameter. Enter appropriate name and this will be used as the file name in sink.``@pipeline().parameters.filename``<br/>
    <img src="images/ex27.jpg"/><br/>
 7.	Click on **Finish** (and **Publish**). This will write the changes to Master.
 10.	Click on **CopyPipeline -> Triggers -> Add** new trigger.<br/>
