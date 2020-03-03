@@ -61,7 +61,7 @@ One option to be able to sync our code is to connect ADF to a code repository. T
    <img src="images/ex04.jpg"/><br/>
 6.	The Repository Settings pane will appear on the right.<br/>
    <img src="images/ex05.jpg"/><br/>
-7.	Select **Use Exiisting** in select working branch page and click the **Save** button when you have verified your settings.
+7.	Select **Use Existing** in select working branch page and click the **Save** button when you have verified your settings.
 
 
 ### Part 3 – Setting up the Connections in the ADF GUI (Azure SQL Database -> ADLS)
