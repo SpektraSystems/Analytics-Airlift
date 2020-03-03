@@ -1,4 +1,4 @@
-# Ingesting Data into a Aazure Data Lake Storage Gen2 with Azure Data Factory
+# Ingesting Data into a Azure Data Lake Storage Gen2 with Azure Data Factory
 
 ## Table of Contents
 
