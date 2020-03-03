@@ -93,7 +93,7 @@ Hint: If you’re still stuck, look at your tables in the object explorer (or sy
 .\RunExercise.ps1 -Name Exercise1 -Type Fast
 ``
     <img src="images/sql7.jpg"/><br/>
-12.	Run the following querys and check the results<br/>
+12.	Run the following queries and check the results<br/>
 ```
 SELECT * FROM sys.dm_pdw_exec_requests
 WHERE [Label] like 'Exercise1 | Fast%' 
