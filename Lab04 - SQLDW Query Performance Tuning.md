@@ -129,7 +129,12 @@ Again, your user comes to you with questions, complaining that they are joining 
     <img src="images/sql10.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
-    <img src="images/sql03.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_exec_requests
+    WHERE [Label] like 'Exercise2 | Slow%' 
+    ORDER BY submit_time DESC
+    ```
+    
 7.	You can use the labels to search for your specific query. Powershell window shows the “Label” that was used during query execution.<br/>
 8.	Look for most recent execution of Exercise 2 query (“Running” or “Completed”)<br/>
     <img src="images/sql11.jpg"/><br/>
