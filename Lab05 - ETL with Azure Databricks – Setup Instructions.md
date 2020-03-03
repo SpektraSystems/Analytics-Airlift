@@ -12,8 +12,7 @@ We will not create a scheduled trigger in this template for simplicity, and you 
 1. Create a blob storage account and a container called **sinkdata** to be used as sink. Keep a note of the storage account name, container name and Access key will be referenced later in the template.<br/>
    <img src="images/adf5.jpg"/><br/>
 2. Go to **Storage Explorer (preview)** -> **BLOB CONTAINERS** -> **sinkdata** -> **+ New Folder** and give instructions as below:<br/>
-    a. Name: **staged_sink**<br/>
-    Click Ok<br/>
+    a. Name: **staged_sink** Click **Ok**<br/>
    <img src="images/adf6.jpg"/><br/>    
 3. Now, Upload **Product.csv** file in that **staged_sink** folder. You will get this file in "C:\staged_sink"<br/>
    <img src="images/adf7.jpg"/><br/>
