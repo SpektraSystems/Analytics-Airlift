@@ -32,7 +32,7 @@ You will also edit the PowerShell script and add your server and database names.
 cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Prep"
 ``
 3.	Change directory to Prep sub folder.<br/>
-4.	Run PrepLab.ps1 script with you Azure Data Warehouse details. This will take 10-15 minutes.<br/>
+4.	Run ``.\PrepLab.ps1`` script with your Azure Data Warehouse details. It will take around 10-15 minutes.<br/>
     <img src="images/sql1.jpg"/><br/>
 5.  Run the following command for changing the PowerShell execution policies for Windows computers.<br/>
 ``
