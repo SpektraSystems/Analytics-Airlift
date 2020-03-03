@@ -165,7 +165,7 @@ And triggers can be used to execute the pipelines on a schedule or on-demand.
    <img src="images/ex29.jpg"/><br/>
 Set Start, End time for **Trigger**. Check **Activated** check-box. 
 11.	Click **Save**.
-12.	In the **Trigger** Run Parameter window,Set **fileName -> ``copyfromsql_@{formatDateTime(trigger().outputs.windowStartTime, 'yyyy-MM-dd')}``**
+12.	In the **Trigger** Run Parameter window,Set **fileName ->** ``copyfromsql_@{formatDateTime(trigger().outputs.windowStartTime, 'yyyy-MM-dd')}``
 
 ``
 Note: Expressions can be changed based on requirements. 
