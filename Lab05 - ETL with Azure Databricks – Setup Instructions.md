@@ -30,17 +30,17 @@ c. Generate a databricks access token for **ADF** to access databricks. Save the
 ### Create Linked Services and datasets
 1.	Create new **linked services** in ADF UI by going to **Connections** -> **Linked services** -> **+ new**<br/>
 
-a.	**Source** – for accessing source data. You can use the public blob storage containing the source files for this sample.<br/>
-Select **Blob Storage**, use the below **SAS URI** to connect to source storage (read-only access).<br/>
+   a.	**Source** – for accessing source data. You can use the public blob storage containing the source files for this sample.<br/>
+   Select **Blob Storage**, use the below **SAS URI** to connect to source storage (read-only access).<br/>
 ```
 https://storagewithdataformdw.blob.core.windows.net/?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2020-05-30T18:40:47Z&st=2020-01-03T10:40:47Z&sip=0.0.0.0-255.255.255.255&spr=https,http&sig=u4%2BQnUWSsVw64B2%2FHDCvPsfRDx9QsLxgJZ0sBRyRCPc%3D
 ```
    <img src="images/adf10.jpg"/><br/>
-b.	**Sink** – for copying data into.<br/>
-Create a new linked service. Select a storage created in the **prerequisite 1**, in the sink linked service.<br/>
+   b.	**Sink** – for copying data into.<br/>
+   Create a new linked service. Select a storage created in the **prerequisite 1**, in the sink linked service.<br/>
    <img src="images/adf11.jpg"/><br/>
-c.	**Databricks** – for connecting to databricks cluster<br/>
-Create a **databricks** linked service using **access key generated** in **prerequisite 4.c**. If you have an interactive cluster, you may select that. (in this case we use a New job cluster option)<br/>
+   c.	**Databricks** – for connecting to databricks cluster<br/>
+      Create a **databricks** linked service using **access key generated** in **prerequisite 4.c**. If you have an interactive cluster, you       may select that. (in this case we use a New job cluster option)<br/>
    <img src="images/adf12.jpg"/><br/>
    <img src="images/adf13.jpg"/><br/>  
 2.	Create **datasets**<br/>
@@ -82,11 +82,25 @@ b.	Create a **Copy** activity **file-to-blob** for copying dataset from source t
    <img src="images/adf22.jpg"/><br/>
    <img src="images/adf23.jpg"/><br/>
 c.	Define **pipeline parameters**<br/>
+```
+inputPath    =  /staged_sink
+outputPath   =  /processed_sink
+filename     =  Product.csv
+
+```
    <img src="images/adf24.jpg"/><br/>
 d.	Create a databricks **activity**<br/>
 •	Select the **linked** service created in 1.c<br/>
    <img src="images/adf25.jpg"/><br/>
 •	Configure the settings. Create **Base Parameters** as shown in the screenshot and create parameters to be passed to the databricks notebook from **ADF****. Browse and select the correct notebook path uploaded in prerequisite 2.<br/>
+```
+input = @pipeline().parameters.inputPath
+output = @pipeline().parameters.outputPath
+filename = @pipeline().parameters.fileName
+pipelineRunid = @pipeline().RunId
+
+
+```
   <img src="images/adf26.jpg"/><br/>
 •	Run the **pipeline**. You can find link to databricks logs for more detailed spark logs.<br/>
   <img src="images/adf27.jpg"/><br/>
