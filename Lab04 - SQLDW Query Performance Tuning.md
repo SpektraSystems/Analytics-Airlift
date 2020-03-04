@@ -32,7 +32,7 @@ You will also edit the PowerShell script and add your server and database names.
 cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Prep"
 ``
 3.	Change directory to Prep sub folder.<br/>
-4.	Run PrepLab.ps1 script with you Azure Data Warehouse details. This will take 10-15 minutes.<br/>
+4.	Run ``.\PrepLab.ps1`` script with your Azure Data Warehouse details. It will take around 10-15 minutes.<br/>
     <img src="images/sql1.jpg"/><br/>
 5.  Run the following command for changing the PowerShell execution policies for Windows computers.<br/>
 ``
@@ -93,7 +93,7 @@ Hint: If you’re still stuck, look at your tables in the object explorer (or sy
 .\RunExercise.ps1 -Name Exercise1 -Type Fast
 ``
     <img src="images/sql7.jpg"/><br/>
-12.	Run the following querys and check the results<br/>
+12.	Run the following queries and check the results<br/>
 ```
 SELECT * FROM sys.dm_pdw_exec_requests
 WHERE [Label] like 'Exercise1 | Fast%' 
@@ -129,26 +129,46 @@ Again, your user comes to you with questions, complaining that they are joining 
     <img src="images/sql10.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
-    <img src="images/sql03.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_exec_requests
+    WHERE [Label] like 'Exercise2 | Slow%' 
+    ORDER BY submit_time DESC
+    ```
+    
 7.	You can use the labels to search for your specific query. Powershell window shows the “Label” that was used during query execution.<br/>
 8.	Look for most recent execution of Exercise 2 query (“Running” or “Completed”)<br/>
     <img src="images/sql11.jpg"/><br/>
 9.	Once you’ve identified the problematic query ID for this scenario, take a deeper look into it by using dm_pdw_request_steps:<br/><br/>
 Some steps of the DSQL plan are mostly overhead and can generally be ignored for purposes of optimizing the plan.<br/>
 These steps include the RandomIDOperation and the creation of the temporary tables for DMS.<br/>
-It can often help to add additional predicates to the above query to remove some of the overhead steps thus allowing you to focus on the heavy lifting operations. AND operation_type NOT IN ('RandomIDOperation')  AND command NOT LIKE 'CREATE %'  AND command NOT LIKE 'DROP %'<br/><br/>
-    <img src="images/sql04.jpg"/><br/>    
+It can often help to add additional predicates to the above query to remove some of the overhead steps thus allowing you to focus on the heavy lifting operations<br/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_request_steps
+    WHERE request_id = 'QID####'
+    ORDER BY step_index
+     ```
 10.	Check the steps and determine which one(s) might be the problematic steps.<br/>
     <img src="images/sql12.jpg"/><br/>
 11.	Run the same query with Fast option.<br/>
 
 ``
-.\RunExercise.ps1 -Name Exercise2 -Type Fast”
+.\RunExercise.ps1 -Name Exercise2 -Type Fast
 ``
     <img src="images/sql13.jpg"/><br/>
 12.	Compare the 2 query execution plans and determine what would be the reason for query slowness.<br/>
     <img src="images/sql14.jpg"/><br/>
     <img src="images/sql15.jpg"/><br/>
+```
+SELECT * FROM sys.dm_pdw_exec_requests
+WHERE [Label] like 'Exercise2 | Fast%' 
+ORDER BY submit_time DESC
+
+SELECT * FROM sys.dm_pdw_request_steps
+WHERE request_id = 'QID####'
+ORDER BY step_index
+
+```
+    
 ``
 Hint: Look at the tables that are being joined with the query.  Take a look at the table distribution types in the SSMS object explorer.  The icon for each table tells you if the table is hash distributed or round robin distributed?  What occurs when two round robin tables are joined?
 ``
@@ -159,25 +179,35 @@ At step 10, you can see that we are performing 5 broadcast moves and 1 shuffle m
 At step 12, you are comparing the fast plan to the slow plan. You can see in the fast plan that we now have 4 broadcast moves (instead of 5) and 1 shuffle. The table that is no longer being broadcasted is that large table we noticed in step 10. We can get the tables being queries from exec_requests, then look at sys.tables or object explorer to see what kind of tables they are. You will see that the fast version has all hash distributed tables, while the slow version has round robin tables.<br/><br/>
 In general, you want large fact tables to be distributed tables. In this query both the orders and lineitem tables are large fact tables. If we are joining them together then it is best if they are distribution-compatible, which means distributed on the same key. This way each distribution has just a small slice of data to work with. In the fast version, both of these tables are distributed on orderkey. Round robin tables are never distribution-compatible, so the slow plan has to perform some sort of movement, like a broadcast, to make them distribution compatible before performing the join. The fast version shuffle will be faster because of the smaller input data volume.
 
-## Part 3: Troubleshooting Nuke)
+## Part 3: Troubleshooting Nuke
 Again, your user comes to you with questions, saying “I’ve just loaded my data and my queries are running slow than on SQL Server! What am I missing here?”
 
 1.	Open a PowerShell window.<br/>
 2.	Change directory to Query Performance Tuning lab content folder.<br/>
 3.	Change directory to Lab sub folder.<br/>
-4.Run “RunExercise.ps1” script with following parameters<br/>
+4.Run **RunExercise.ps1** script with following parameters<br/>
 ``
 .\RunExercise.ps1 -Name Exercise3 -Type Slow
 ``
     <img src="images/sql16.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
-    <img src="images/sql05.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_exec_requests
+    WHERE [Label] like 'Exercise3 | Slow%' 
+    ORDER BY submit_time DESC
+    
+    ```
 7.	You can use the labels to search for your specific query. Powershell window shows the “Label” that was used during query execution.<br/> 
 8.	Look for most recent execution of Exercise 3 query (“Running” or “Completed”)<br/>
     <img src="images/sql17.jpg"/><br/>
 9.	Once you’ve identified the problematic query ID for this scenario, take a deeper look into it by using dm_pdw_request_steps:<br/>
-    <img src="images/sql06.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_request_steps
+    WHERE request_id = 'QID####'
+    ORDER BY step_index----
+    
+    ```
 10.	Check the steps and determine which one(s) might be the problematic steps.<br/>
     <img src="images/sql18.jpg"/><br/>
 11.	Run the same query with Fast option.<br/>
@@ -186,8 +216,15 @@ Again, your user comes to you with questions, saying “I’ve just loaded my da
 ``
     <img src="images/sql19.jpg"/><br/>
 12.	Compare the 2 query execution plans and determine what would be the reason for query slowness.<br/>
-    <img src="images/sql21.jpg"/><br/>
-    <img src="images/sql22.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_exec_requests
+    WHERE [Label] like 'Exercise3 | Fast%' 
+    ORDER BY submit_time DESC
+    
+    SELECT * FROM sys.dm_pdw_request_steps
+    WHERE request_id = 'QID####'
+    ORDER BY step_index
+    ```
 ```
 Hint: Look at our best practices (in order) to narrow down what issues cause queries to run slowly.<br/>
 Hint: The “orders” table is one of the two largest tables and generally too big for a broadcast move.  Why did the optimizer choose to create a copy of these rows on all nodes?<br/>
@@ -212,20 +249,38 @@ Now that your user has got all of their data loaded and organized they are tryin
     <img src="images/sql23.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
-    <img src="images/sql34.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_exec_requests
+    WHERE [Label] like 'Exercise4 | Slow%' 
+    ORDER BY submit_time DESC
+    ```
+    <br/>
 7.	You can use the labels to search for your specific query. Powershell window shows the “Label” that was used during query execution<br/>
 8.	Look for most recent execution of Exercise 4 query (“Running” or “Completed”)<br/>
     <img src="images/sql24.jpg"/><br/>
 9.	Check the steps and determine which one(s) might be the problematic steps.<br/>
-    <img src="images/sql35.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_request_steps
+    WHERE request_id = 'QID####'
+    ORDER BY step_index
+    ```
+    <br/>
 10.	Run the same query with Fast option.<br/>
 ``
 .\RunExercise.ps1 -Name Exercise4 -Type Fast
 ``
     <img src="images/sql26.jpg"/><br/>
 11.	Compare the 2 query execution plans and determine what would be the reason for query slowness.<br/>
-    <img src="images/sql27.jpg"/><br/>
-    <img src="images/sql28.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_exec_requests
+    WHERE [Label] like 'Exercise4 | Fast%' 
+    ORDER BY submit_time DESC
+    
+    SELECT * FROM sys.dm_pdw_request_steps
+    WHERE request_id = 'QID####'
+    ORDER BY step_index
+    
+    ```
 ```
 Hint: In this example, the query plan is optimal. This query could benefit if it was given more memory.  How much memory has been allocated to this query?  How can you use sys.dm_pdw_exec_requests to determine the memory grant? How can you change the memory allocation for a query?
 ```
@@ -242,9 +297,9 @@ Now that you’ve helped your user with some of their initial issues, they’re 
 1.	Open a PowerShell window.<br/>
 2.	Change directory to Query Performance Tuning lab content folder.<br/>
 3.	Change directory to Lab sub folder.<br/>
-4.	Run “RunExercise.ps1” script with following parameters<br/>
+4.	Run ``RunExercise.ps1`` script with following parameters<br/>
 ``
-“.\RunExercise.ps1 -Name Exercise5 -Type Slow”
+.\RunExercise.ps1 -Name Exercise5 -Type Slow
 ``
     <img src="images/sql29.jpg"/><br/>
 5.	This script will create a workload simulation on your server. It will create 20 background jobs which will send queries to your system.<br/>
@@ -265,7 +320,7 @@ Hint: What can be changed to ensure these small queries run? After you investiga
 ``
 10.	You need to kill the background jobs before continuing.<br/>
 11.	Cancel the running process on current PowerShell window.<br/>
-12.	Run “.\Kill.ps1”<br/>
+12.	Run ``.\Kill.ps1``<br/>
     <img src="images/kill1.jpg"/><br/>
 13.	Make sure you close the PowerShell window.<br/>
 14.	Open a PowerShell window.<br/>

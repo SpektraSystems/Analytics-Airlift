@@ -38,7 +38,7 @@ o	SQL Server Data Tools 2016 (SSDT).<br/>
 ## Scenario
 During the Airlift, we will to Part 1 together.   In the lab we will use demo data that is already provided on a shared blob storage.
 
-### Part 1a – Loading Blob storage data into Azure SQL Data Warehouse
+### Part 1 – Loading Blob storage data into Azure SQL Data Warehouse
 We have created our SQL Data Warehouse and now we want to load data into it.  We can do this through the traditional ways of ETL and tooling such as SQL Server Integration Services or third-party tooling.  However, today we are going to use Polybase. Your source data has been precreated and is in your Azure Blob Storage account.<
  
 1. From your virtual machine navigate to the **Azure portal** within the web browser which should be open from the last exercise.  If not, open the browser and navigate to https://portal.azure.com<br/>

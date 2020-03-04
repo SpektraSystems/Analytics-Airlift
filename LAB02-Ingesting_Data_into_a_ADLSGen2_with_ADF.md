@@ -1,4 +1,4 @@
-# Ingesting Data into a Aazure Data Lake Storage Gen2 with Azure Data Factory
+# Ingesting Data into a Azure Data Lake Storage Gen2 with Azure Data Factory
 
 ## Table of Contents
 
@@ -32,20 +32,19 @@ We are going to use the portal to create the Azure Data Factory.
 2.	Select **New** on the left menu, select **Analytics**, and then select **Data Factory**.<br/>
     <img src="images/ex01.jpg"/><br/>
 3.	On the New data factory page, enter **ad-flab-adf** for Name.
-4.	Make sure you select **Version** as **V2 (Pre-view)**<br/>
-   <img src="images/ex03.jpg"/><br/>
+4.	Make sure you select **Version** as **V2**<br/>
+   <img src="images/ex02.jpg"/><br/>
 
 ``
 Note: The name of the Azure data factory must be globally unique. Please modify the name if the Name validation fails. 
 ``
 
 5.	After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the **Azure Data Factory** user interface (UI) application on a separate tab.<br/>
-   <img src="images/ex02.jpg"/><br/>
- 6. Go to **ADLS Gen2 storage accountt** in azure portal
+   <img src="images/ex03.jpg"/><br/>
+ 6. Go to **ADLS Gen2 storage account** in azure portal
    <img src="images/gen1.jpg"/><br/>
 7. Create **File Systems** in **adlsg2** storage account as per below instructions:<br/>
-   a. Name: **inputsql**<br/>
-   and Click **OK**<br/>
+   a. Name: **inputsql** and Click **OK**
    <img src="images/gen2.jpg"/><br/>  
    
 ### Part 2 – Connect ADF to a code repository to begin using the ADF GUI (Optional)
@@ -61,13 +60,13 @@ One option to be able to sync our code is to connect ADF to a code repository. T
    <img src="images/ex04.jpg"/><br/>
 6.	The Repository Settings pane will appear on the right.<br/>
    <img src="images/ex05.jpg"/><br/>
-7.	Select **Use Exiisting** in select working branch page and click the **Save** button when you have verified your settings.
+7.	Select **Use Existing** in select working branch page and click the **Save** button when you have verified your settings.
 
 
 ### Part 3 – Setting up the Connections in the ADF GUI (Azure SQL Database -> ADLS)
 We now want to use the GUI to create another copy activity in the same pipeline to copy the Data from Azure SQL DB to Azure blob storage to be ready for transformation along with the earlier CSV file. Our first step is setting up the connections and linked services need for the source and destination.
 
-1.	In the Left Menu click the **Connections** menu item.
+1.	In the Left Menu go to **Author**click the **Connections** menu item.
 2.	In the right pane you need to **Select** working branch as **Master**.<br/>
    <img src="images/ex07.jpg"/><br/>
 3.	Click the **+New** button under **Linked** Services.<br/>
@@ -123,7 +122,7 @@ Note: This Query may change based on your table selection.
 14.	Click back on the **CopyPipeline**.<br/>
 15.	Click the **AzureSQLtoADLSGen2** copy activity.<br/>
 16.	Click the **Sink** Tab in the Copy Activity GUI.<br/>
-17.	Click the **+New** button next to **Source Dataset**.<br/>
+17.	Click the **+New** button next to **Sink Dataset**.<br/>
    <img src="images/sink.jpg"/><br/>
 18.	You should now see the list of sink dataset connectors.<br/>
 19.	Choose the **Azure Data lake Storage Gen2** dataset and click **Continue**.
@@ -153,11 +152,11 @@ And triggers can be used to execute the pipelines on a schedule or on-demand.
 2.	Name it as **filename**, let the **Value** be empty.<br/>
    <img src="images/adls2.jpg"/><br/>
 3.	Click **Save**
-4.	Navigate to **datasetADLSgen2fromSQL -> Parameters -> File Name**, and set the value as **@pipeline().parameters.filename**<br/>
+4.	Navigate to **datasetADLSgen2fromSQL -> Parameters -> filename**, and set the value as ``@pipeline().parameters.filename``<br/>
    <img src="images/adls3.jpg"/><br/>
 5.	Navigate to the **CopyPipeline** and **Debug** it.<br/>
    <img src="images/adls4.jpg"/><br/>
-6.	It will ask for an input parameter. Enter appropriate name and this will be used as the file name in sink.<br/>
+6.	It will ask for an input parameter. Enter appropriate name and this will be used as the file name in sink.``@pipeline().parameters.filename``<br/>
    <img src="images/ex27.jpg"/><br/>
 7.	Click on **Finish** (and **Publish**). This will write the changes to Master.
 10.	Click on **CopyPipeline -> Triggers -> Add** new trigger.<br/>
@@ -165,7 +164,7 @@ And triggers can be used to execute the pipelines on a schedule or on-demand.
    <img src="images/ex29.jpg"/><br/>
 Set Start, End time for **Trigger**. Check **Activated** check-box. 
 11.	Click **Save**.
-12.	In the **Trigger** Run Parameter window,Set **fileName -> copyfromsql_@{formatDateTime(trigger().outputs.windowStartTime, 'yyyy-MM-dd')}**
+12.	In the **Trigger** Run Parameter window,Set **fileName ->** ``copyfromsql_@{formatDateTime(trigger().outputs.windowStartTime, 'yyyy-MM-dd')}``
 
 ``
 Note: Expressions can be changed based on requirements. 
