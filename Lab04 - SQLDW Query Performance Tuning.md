@@ -141,19 +141,34 @@ Again, your user comes to you with questions, complaining that they are joining 
 9.	Once you’ve identified the problematic query ID for this scenario, take a deeper look into it by using dm_pdw_request_steps:<br/><br/>
 Some steps of the DSQL plan are mostly overhead and can generally be ignored for purposes of optimizing the plan.<br/>
 These steps include the RandomIDOperation and the creation of the temporary tables for DMS.<br/>
-It can often help to add additional predicates to the above query to remove some of the overhead steps thus allowing you to focus on the heavy lifting operations. AND operation_type NOT IN ('RandomIDOperation')  AND command NOT LIKE 'CREATE %'  AND command NOT LIKE 'DROP %'<br/><br/>
-    <img src="images/sql04.jpg"/><br/>    
+It can often help to add additional predicates to the above query to remove some of the overhead steps thus allowing you to focus on the heavy lifting operations<br/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_request_steps
+    WHERE request_id = 'QID####'
+    ORDER BY step_index
+     ```
 10.	Check the steps and determine which one(s) might be the problematic steps.<br/>
     <img src="images/sql12.jpg"/><br/>
 11.	Run the same query with Fast option.<br/>
 
 ``
-.\RunExercise.ps1 -Name Exercise2 -Type Fast”
+.\RunExercise.ps1 -Name Exercise2 -Type Fast
 ``
     <img src="images/sql13.jpg"/><br/>
 12.	Compare the 2 query execution plans and determine what would be the reason for query slowness.<br/>
     <img src="images/sql14.jpg"/><br/>
     <img src="images/sql15.jpg"/><br/>
+```
+SELECT * FROM sys.dm_pdw_exec_requests
+WHERE [Label] like 'Exercise2 | Fast%' 
+ORDER BY submit_time DESC
+
+SELECT * FROM sys.dm_pdw_request_steps
+WHERE request_id = 'QID####'
+ORDER BY step_index
+
+```
+    
 ``
 Hint: Look at the tables that are being joined with the query.  Take a look at the table distribution types in the SSMS object explorer.  The icon for each table tells you if the table is hash distributed or round robin distributed?  What occurs when two round robin tables are joined?
 ``
@@ -177,12 +192,22 @@ Again, your user comes to you with questions, saying “I’ve just loaded my da
     <img src="images/sql16.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
-    <img src="images/sql05.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_exec_requests
+    WHERE [Label] like 'Exercise3 | Slow%' 
+    ORDER BY submit_time DESC
+    
+    ```
 7.	You can use the labels to search for your specific query. Powershell window shows the “Label” that was used during query execution.<br/> 
 8.	Look for most recent execution of Exercise 3 query (“Running” or “Completed”)<br/>
     <img src="images/sql17.jpg"/><br/>
 9.	Once you’ve identified the problematic query ID for this scenario, take a deeper look into it by using dm_pdw_request_steps:<br/>
-    <img src="images/sql06.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_request_steps
+    WHERE request_id = 'QID####'
+    ORDER BY step_index----
+    
+    ```
 10.	Check the steps and determine which one(s) might be the problematic steps.<br/>
     <img src="images/sql18.jpg"/><br/>
 11.	Run the same query with Fast option.<br/>
@@ -191,8 +216,15 @@ Again, your user comes to you with questions, saying “I’ve just loaded my da
 ``
     <img src="images/sql19.jpg"/><br/>
 12.	Compare the 2 query execution plans and determine what would be the reason for query slowness.<br/>
-    <img src="images/sql21.jpg"/><br/>
-    <img src="images/sql22.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_exec_requests
+    WHERE [Label] like 'Exercise3 | Fast%' 
+    ORDER BY submit_time DESC
+    
+    SELECT * FROM sys.dm_pdw_request_steps
+    WHERE request_id = 'QID####'
+    ORDER BY step_index
+    ```
 ```
 Hint: Look at our best practices (in order) to narrow down what issues cause queries to run slowly.<br/>
 Hint: The “orders” table is one of the two largest tables and generally too big for a broadcast move.  Why did the optimizer choose to create a copy of these rows on all nodes?<br/>
@@ -217,20 +249,38 @@ Now that your user has got all of their data loaded and organized they are tryin
     <img src="images/sql23.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
-    <img src="images/sql34.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_exec_requests
+    WHERE [Label] like 'Exercise4 | Slow%' 
+    ORDER BY submit_time DESC
+    ```
+    <br/>
 7.	You can use the labels to search for your specific query. Powershell window shows the “Label” that was used during query execution<br/>
 8.	Look for most recent execution of Exercise 4 query (“Running” or “Completed”)<br/>
     <img src="images/sql24.jpg"/><br/>
 9.	Check the steps and determine which one(s) might be the problematic steps.<br/>
-    <img src="images/sql35.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_request_steps
+    WHERE request_id = 'QID####'
+    ORDER BY step_index
+    ```
+    <br/>
 10.	Run the same query with Fast option.<br/>
 ``
 .\RunExercise.ps1 -Name Exercise4 -Type Fast
 ``
     <img src="images/sql26.jpg"/><br/>
 11.	Compare the 2 query execution plans and determine what would be the reason for query slowness.<br/>
-    <img src="images/sql27.jpg"/><br/>
-    <img src="images/sql28.jpg"/><br/>
+    ```
+    SELECT * FROM sys.dm_pdw_exec_requests
+    WHERE [Label] like 'Exercise4 | Fast%' 
+    ORDER BY submit_time DESC
+    
+    SELECT * FROM sys.dm_pdw_request_steps
+    WHERE request_id = 'QID####'
+    ORDER BY step_index
+    
+    ```
 ```
 Hint: In this example, the query plan is optimal. This query could benefit if it was given more memory.  How much memory has been allocated to this query?  How can you use sys.dm_pdw_exec_requests to determine the memory grant? How can you change the memory allocation for a query?
 ```
@@ -247,7 +297,7 @@ Now that you’ve helped your user with some of their initial issues, they’re 
 1.	Open a PowerShell window.<br/>
 2.	Change directory to Query Performance Tuning lab content folder.<br/>
 3.	Change directory to Lab sub folder.<br/>
-4.	Run “RunExercise.ps1” script with following parameters<br/>
+4.	Run ``RunExercise.ps1`` script with following parameters<br/>
 ``
 .\RunExercise.ps1 -Name Exercise5 -Type Slow
 ``
