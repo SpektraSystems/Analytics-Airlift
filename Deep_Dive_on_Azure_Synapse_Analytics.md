@@ -80,8 +80,8 @@ Note: Before opening Visual Studio click on Configure your firewall to make sure
 Now, we have created our external data source we can query and load the data we have in the Azure Blob Store.In the following lab we will load dimension tables into our SQL DW. Dimension tables are often a good first step because they are relatively small and this will allow you to gain an understanding of how to load data into SQL DW from WASB. 
 
 1. Open the **Dimensions** file that can be found **C:\LabContent\Analytics-Airlift-master\Day 1\05.SQLDW - Loading lab** from visual studio.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/dimensions.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/ld8.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/dimensions.jpg"/><br/>
 2. Copy the **Dimensions.sql** script and replace it with the existing script in query window.<br/>
     ![](images/query2.png)
 2. Execute the **Query**.<br/>
