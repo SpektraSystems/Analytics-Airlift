@@ -59,7 +59,7 @@ Note: Before opening Visual Studio click on Configure your firewall to make sure
 5. Click **Open Link** on the dialog box that ap-pears. **Visual Studio** will now launch.<br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/ld4.jpg"/><br/>
 6. Sign in with your given **Azure Credentials**.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld5.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/ld5.jpg"/><br/>
 7. Fill in the **password** specified in **Environment Detail Page**.<br/>
 * Username: **ti-admin**
 * Password: **Password.1!!**
