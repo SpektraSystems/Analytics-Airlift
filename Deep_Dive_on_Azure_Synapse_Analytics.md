@@ -395,12 +395,10 @@ Now that your user has got all of their data loaded and organized they are tryin
 2.	Change directory to Query Performance Tuning lab content folder.<br/>
 3.	Change directory to Lab sub folder.<br/>
 4.	Run “RunExercise.ps1” script with following parameters<br/>
-
-          ``
-            .\RunExercise.ps1 -Name Exercise4 -Type Slow
-           ``
-
-    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql23.jpg"/><br/>
+``
+.\RunExercise.ps1 -Name Exercise4 -Type Slow
+``
+<img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql23.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql34.jpg"/><br/>
