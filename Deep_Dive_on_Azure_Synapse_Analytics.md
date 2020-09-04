@@ -122,6 +122,7 @@ Note:
 * 	Run the following script to update Statstics<br/>
 * 	Auto update statistics can take care of automatically updating single column stats, but in this case it is multi-column stats
 ```
+
 ```
 CREATE TABLE Dim_Aircraft
 WITH
@@ -134,14 +135,15 @@ CREATE STATISTICS Aircraft_Stat
 ON 
 Dim_Aircraft (id, type, manufacturer)
 ```
+
 3. Remainder code will load the all dimension tables.
 
 ### Part 3 – Create Partitioned Fact Table
 To effectively leverage a partition swap load, a table has to exist with an exisiting partition scheme. To do this you must create an empty table with a partitioning scheme.
 
 1. To create an empty table partioned by DateID. Open the **2 - Create Fact Table** file that can be found in the **C:\LabContent\Analytics-Airlift-master\Day 1\05.SQLDW - Loading lab**  from visual studio.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/create.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/ld8.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/create.jpg"/><br/>
 2. Copy the 2 - **Create Fact Table.dsql** script and replace it with existing content in query window.<br/>
     ![](images/query3.png)
 3. To load the staging tables from WASB into SQDL DW. 
