@@ -376,11 +376,11 @@ Again, your user comes to you with questions, saying “I’ve just loaded my da
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql21.jpg"/><br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql22.jpg"/><br/>
     
-         ```
-            Hint: Look at our best practices (in order) to narrow down what issues cause queries to run slowly.<br/>
-            Hint: The “orders” table is one of the two largest tables and generally too big for a broadcast move.  Why did the optimizer choose to create a copy of these rows on all nodes?<br/>
-            Hint: If you’re still having trouble, look at the orders table in the object explorer tree to see what statistics are on the tables in this query.  You can see the SQL that is running in the DMV sys.dm_pdw_exec_requests.<br/>
-           ```
+    ```
+     Hint: Look at our best practices (in order) to narrow down what issues cause queries to run slowly.<br/>
+     Hint: The “orders” table is one of the two largest tables and generally too big for a broadcast move.  Why did the optimizer choose to create a copy of these rows on all nodes?<br/>
+     Hint: If you’re still having trouble, look at the orders table in the object explorer tree to see what statistics are on the tables in this query.  You can see the SQL that is running in the DMV sys.dm_pdw_exec_requests.<br/>
+    ```
 
 ### Discussion
 You should be able to reach step 10 using the same method you did in the first 2 exercises. In step 10, you should look through the steps for the longest-running step. In this case it's the BroadcastMove that took over 30 seconds. Next you can see that the rowcount for this broadcast is 60 million rows. This is a red flag because broadcasting such a large table will be very expensive. You should have used the original query or the exec_requests DMV to get the command and see what tables you are querying.<br/><br/>
