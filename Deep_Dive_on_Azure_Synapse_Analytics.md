@@ -151,8 +151,8 @@ To effectively leverage a partition swap load, a table has to exist with an exis
     ![](images/query3.png)
 3. To load the staging tables from WASB into SQDL DW. 
 4. Open the **3 - InitialFactLoad.dsql** file that can be found in the **C:\LabContent\Analytics-Airlift-master\Day 1\05.SQLDW - Loading lab** from visual studio.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/initial.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/ld8.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/initial.jpg"/><br/>
 5. Copy the 3 - **InitialFactLoad.dsql** script and replace it with existing content in query window <br/>
    ![](images/query4.png)
 ```
@@ -165,8 +165,8 @@ Note:
 In the next set of steps we are going to take the staging tables we created in part 3 and prep the data for a partition switch.
 
 1. Open the **4 - PartitionStagingTables.dsql** file that can be found in the **C:\LabContent\Analytics-Airlift-master\Day 1\05.SQLDW - Loading lab** from visual studio.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/Partition.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/ld8.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/Partition.jpg"/><br/>
 2. To complete the staging table prep. Copy the script and replace it with existing content in query window <br/>
     ![](images/query5.png)
 
@@ -176,8 +176,8 @@ Now that we have a set of partitioned tables and an empty fact table, we can sta
 1. The next script that you will run loops through the partitioned tables and dynamically switches the partitions.  Because this operation is on the metadata, there is relatively little downtime for the amount of data "loaded" into the production fact table.
 
 Open the 5 -**LoadWithPartitionSwitch.dsql** file that can be found in the **LabContent** folder in your drive C:\ under **Day-1\05.SQLDW** - Loading lab from visual studio.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/load.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/ld8.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/load.jpg"/><br/>
 2. To switch the partitions on your empty fact table. Run the following script that is part of 5 -**LoadWithPartitionSwitch.dsql** script and replace it with existing content in query window.
     ![](images/query6.png)
 
@@ -205,15 +205,16 @@ cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Pre
 ``
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass
 ``
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql2.jpg"/><br/>
+
+  <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql2.jpg"/><br/>
     
 5.	Open your **Query Performance Tuning Lab** content folder.<br/>
 6.	Change directory to **C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Lab>** sub folder.<br/>
 7.	Edit “RunExercise.ps1” script.<br/>
 8.	Replace **<your_server>** with your **server** name. (Without database.windows.net)<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql01.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql01.jpg"/><br/>
 9.	Replace **<your_database>** with your **database** name.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql02.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql02.jpg"/><br/>
 
 ### Part 7 – Queries running slowly
 Your user comes to you and says “My query is running slow. I’m not sure why, because I’m not selecting very many rows. Can you help me figure out why?
@@ -226,7 +227,8 @@ Your user comes to you and says “My query is running slow. I’m not sure why,
 ``
 .\RunExercise.ps1 -Name Exercise1 -Type Slow
 ``
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql4.jpg"/><br/>
+
+   <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql4.jpg"/><br/>
     
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
     ![](images/tilogin.png)
@@ -238,18 +240,19 @@ WHERE [Label] like 'Exercise1 | Slow%'
 ORDER BY submit_time DESC
 ```
 7.	You can use the labels to search for your specific query. Powershell window shows the “Label” that was used during query execution.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql5.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql5.jpg"/><br/>
 8.	Look for most recent execution of Exercise 1 query (“Running” or “Completed”)<br/>
 9.	Once you’ve identified the problematic query ID for this scenario, take a deeper look into it by using dm_pdw_request_steps:<br/>
 
-```
-SELECT * FROM sys.dm_pdw_request_steps
-WHERE request_id = 'QID####'
-ORDER BY step_index
-```
+   ```
+    SELECT * FROM sys.dm_pdw_request_steps
+    WHERE request_id = 'QID####'
+    ORDER BY step_index
+   ```
 
 10.	After running these queries, come up with a hypothesis about why the operation may be taking a long time.  What are the longest running operations?  What might they tell you about how the workflow is structured?<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql6.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql6.jpg"/><br/>
+    
 ```
 Hint: Moving data will typically be one of the most expensive operations within SQL DW.  How is this query moving data and how could it move it more effectively?  See the Appendix for more info about data movement types.<br/>
 Hint: Why is this query moving data?  What is the source of the moved data? 
@@ -259,7 +262,7 @@ Hint: If you’re still stuck, look at your tables in the object explorer (or sy
 ``
 .\RunExercise.ps1 -Name Exercise1 -Type Fast
 ``
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql7.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql7.jpg"/><br/>
 12.	Run the following querys and check the results<br/>
 ```
 SELECT * FROM sys.dm_pdw_exec_requests
@@ -272,8 +275,8 @@ ORDER BY step_index
 ```
 13.	Compare the results.<br/>
 
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql8.jpg"/><br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql9.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql8.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql9.jpg"/><br/>
 
 ### Discussion
 After steps 1-5, you should have taken a look at the query that was being executed and think about what kind of plan you may expect to see.<br/><br/>
@@ -293,29 +296,29 @@ Again, your user comes to you with questions, complaining that they are joining 
 ``
 .\RunExercise.ps1 -Name Exercise2 -Type Slow
 ``
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql10.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql10.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql03.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql03.jpg"/><br/>
 7.	You can use the labels to search for your specific query. Powershell window shows the “Label” that was used during query execution.<br/>
 8.	Look for most recent execution of Exercise 2 query (“Running” or “Completed”)<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql11.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql11.jpg"/><br/>
 9.	Once you’ve identified the problematic query ID for this scenario, take a deeper look into it by using dm_pdw_request_steps:<br/><br/>
 Some steps of the DSQL plan are mostly overhead and can generally be ignored for purposes of optimizing the plan.<br/>
 These steps include the RandomIDOperation and the creation of the temporary tables for DMS.<br/>
 It can often help to add additional predicates to the above query to remove some of the overhead steps thus allowing you to focus on the heavy lifting operations. AND operation_type NOT IN ('RandomIDOperation')  AND command NOT LIKE 'CREATE %'  AND command NOT LIKE 'DROP %'<br/><br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql04.jpg"/><br/>    
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql04.jpg"/><br/>    
 10.	Check the steps and determine which one(s) might be the problematic steps.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql12.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql12.jpg"/><br/>
 11.	Run the same query with Fast option.<br/>
 
 ``
 .\RunExercise.ps1 -Name Exercise2 -Type Fast”
 ``
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql13.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql13.jpg"/><br/>
 12.	Compare the 2 query execution plans and determine what would be the reason for query slowness.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql14.jpg"/><br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql15.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql14.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql15.jpg"/><br/>
 ``
 Hint: Look at the tables that are being joined with the query.  Take a look at the table distribution types in the SSMS object explorer.  The icon for each table tells you if the table is hash distributed or round robin distributed?  What occurs when two round robin tables are joined?
 ``
@@ -336,25 +339,25 @@ Again, your user comes to you with questions, saying “I’ve just loaded my da
 ``
 .\RunExercise.ps1 -Name Exercise3 -Type Slow
 ``
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql16.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql16.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql05.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql05.jpg"/><br/>
 7.	You can use the labels to search for your specific query. Powershell window shows the “Label” that was used during query execution.<br/> 
 8.	Look for most recent execution of Exercise 3 query (“Running” or “Completed”)<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql17.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql17.jpg"/><br/>
 9.	Once you’ve identified the problematic query ID for this scenario, take a deeper look into it by using dm_pdw_request_steps:<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql06.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql06.jpg"/><br/>
 10.	Check the steps and determine which one(s) might be the problematic steps.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql18.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql18.jpg"/><br/>
 11.	Run the same query with Fast option.<br/>
 ``
 .\RunExercise.ps1 -Name Exercise3 -Type Fast
 ``
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql19.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql19.jpg"/><br/>
 12.	Compare the 2 query execution plans and determine what would be the reason for query slowness.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql21.jpg"/><br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql22.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql21.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql22.jpg"/><br/>
 ```
 Hint: Look at our best practices (in order) to narrow down what issues cause queries to run slowly.<br/>
 Hint: The “orders” table is one of the two largest tables and generally too big for a broadcast move.  Why did the optimizer choose to create a copy of these rows on all nodes?<br/>
@@ -376,23 +379,23 @@ Now that your user has got all of their data loaded and organized they are tryin
 ``
 .\RunExercise.ps1 -Name Exercise4 -Type Slow
 ``
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql23.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql23.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql34.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql34.jpg"/><br/>
 7.	You can use the labels to search for your specific query. Powershell window shows the “Label” that was used during query execution<br/>
 8.	Look for most recent execution of Exercise 4 query (“Running” or “Completed”)<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql24.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql24.jpg"/><br/>
 9.	Check the steps and determine which one(s) might be the problematic steps.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql35.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql35.jpg"/><br/>
 10.	Run the same query with Fast option.<br/>
 ``
 .\RunExercise.ps1 -Name Exercise4 -Type Fast
 ``
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql26.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql26.jpg"/><br/>
 11.	Compare the 2 query execution plans and determine what would be the reason for query slowness.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql27.jpg"/><br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql28.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql27.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql28.jpg"/><br/>
 ```
 Hint: In this example, the query plan is optimal. This query could benefit if it was given more memory.  How much memory has been allocated to this query?  How can you use sys.dm_pdw_exec_requests to determine the memory grant? How can you change the memory allocation for a query?
 ```
@@ -413,7 +416,7 @@ Now that you’ve helped your user with some of their initial issues, they’re 
 ``
 “.\RunExercise.ps1 -Name Exercise5 -Type Slow”
 ``
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql29.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql29.jpg"/><br/>
 5.	This script will create a workload simulation on your server. It will create 20 background jobs which will send queries to your system.<br/>
 6.	It will wait for 60 seconds for all background jobs properly starts and then will start your problematic query.<br/>
 7.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
@@ -433,7 +436,7 @@ Hint: What can be changed to ensure these small queries run? After you investiga
 10.	You need to kill the background jobs before continuing.<br/>
 11.	Cancel the running process on current PowerShell window.<br/>
 12.	Run “.\Kill.ps1”<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/kill1.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/kill1.jpg"/><br/>
 13.	Make sure you close the PowerShell window.<br/>
 14.	Open a PowerShell window.<br/>
 15.	Change directory to Query Performance Tuning lab content folder.<br/>
@@ -442,12 +445,12 @@ Hint: What can be changed to ensure these small queries run? After you investiga
 ``
 “.\RunExercise.ps1 -Name Exercise5 -Type Fast”
 ``
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/sql32.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql32.jpg"/><br/>
 18.	Compare the 2 query execution plans.<br/>
 19.	You need to kill the background jobs before continuing.<br/>
 20.	Cancel the running process on current PowerShell window.<br/>
 21.	Run “.\Kill.ps1”
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/kill.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/kill.jpg"/><br/>
 22.	Make sure you close the PowerShell window.
 
 ## Discussion
