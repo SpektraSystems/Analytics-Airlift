@@ -88,16 +88,15 @@ Now, we have created our external data source we can query and load the data we 
 3. Go through the Content inside the dimension for understanding the script:<br/>
 a. Using the following script to create an external table called Aircraft_IMPORT
 
-   ```
+    ```
     Note: 
       •   data_source - References the Ex-ternal Data Source that you want to read from
       
       •	  File_format - References the File Format that the data is in
       
       •	  location - Specifies the directory lo-cation that you want to read from. PolyBase traverses all childern di-rectories and files from a stated filepath.
-   ```
-   
-   ```
+    ```
+    ```
       CREATE EXTERNAL TABLE Aircraft_IMPORT
          ([id] [int] NULL,
 	      [TailNum] [varchar](15) NULL,
@@ -115,30 +114,28 @@ a. Using the following script to create an external table called Aircraft_IMPORT
        FILE_FORMAT = pipe,              
        LOCATION = 'aircraft'
       )
-   ```
-   
-b. Use the following **CTAS** script to create the table and load data
+    ```
+b. Use the following **CTAS** script to create the table and load data.<br/>
 
     ```
-     Note:
-      * 	Make sure that you select * From Aircraft_IMPORT  you just created.<br/>
-      * 	Run the following script to update Statstics<br/>
-      * 	Auto update statistics can take care of automatically updating single column stats, but in this case it is multi-column stats
+      Note:
+        * 	Make sure that you select * From Aircraft_IMPORT  you just created.
+        * 	Run the following script to update Statstics<br/>
+        * 	Auto update statistics can take care of automatically updating single column stats, but in this case it is multi-column stats
     ```
-
     ```
-    CREATE TABLE Dim_Aircraft
-    WITH
-    (
-     DISTRIBUTION = ROUND_ROBIN
-     ,CLUSTERED INDEX (id)                      
-    )
-    AS SELECT * FROM Aircraft_IMPORT    
-    CREATE STATISTICS Aircraft_Stat 
-    ON 
-    Dim_Aircraft (id, type, manufacturer)
+      CREATE TABLE Dim_Aircraft
+      WITH
+      (
+       DISTRIBUTION = ROUND_ROBIN
+       ,CLUSTERED INDEX (id)                      
+      )
+      AS SELECT * FROM Aircraft_IMPORT    
+      CREATE STATISTICS Aircraft_Stat 
+      ON 
+      Dim_Aircraft (id, type, manufacturer)
     ```
-
+    
 3. Remainder code will load the all dimension tables.
 
 ### Part 3 – Create Partitioned Fact Table
