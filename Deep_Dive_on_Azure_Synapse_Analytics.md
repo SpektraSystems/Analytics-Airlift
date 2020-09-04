@@ -465,12 +465,11 @@ Hint: What can be changed to ensure these small queries run? After you investiga
 15.	Change directory to Query Performance Tuning lab content folder.<br/>
 16.	Change directory to Lab sub folder.<br/>
 17.	Run “RunExercise.ps1” script with following parameters Run the same query with Fast option.<br/>
+``
+“.\RunExercise.ps1 -Name Exercise5 -Type Fast”
+``
 
-         ```
-          “.\RunExercise.ps1 -Name Exercise5 -Type Fast”
-         ```
-	 
-    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql32.jpg"/><br/>
+   <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql32.jpg"/><br/>
 18.	Compare the 2 query execution plans.<br/>
 19.	You need to kill the background jobs before continuing.<br/>
 20.	Cancel the running process on current PowerShell window.<br/>
@@ -483,5 +482,3 @@ This exercise tries to simulate an active workload on your data warehouse. It cr
 When you reached to step 9 on Slow execution exercise, you will notice that your query is in the queue (“Suspended”) and does not “Running”. You can check wait stats and see that what is your query is waiting on “UserConcurrencyResourceType” which means that it is waiting for enough concurrency slots become available.<br/><br/>
 When you check dm_pdw_exec_requests you will notice that this query is running on largerc resource class. In previous example we talk about using higher resource classes allow your query to have more memory resources. But this will result in more memory consumption from the overall system and resulted in less concurrent query executions. So you need to be careful about which resource classes you are using for executing your queries. Always test your queries with your actual workload.<br/><br/>
 On faster version of this exercise you will notice that your queries might again queued but once there is enough concurrency slots available it will go through the execution. You will see that your query runs 3 times but at every execution it waits on the queue. You can check the queue waiting time by comparing start_time and submit_time in dm_pdw_exec_requests DMV.
-
-
