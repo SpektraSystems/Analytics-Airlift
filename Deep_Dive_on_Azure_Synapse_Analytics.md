@@ -70,7 +70,7 @@ Note: Before opening Visual Studio click on Configure your firewall to make sure
 10. Right click the database name and select **New Query**.  A new query window will open<br/>
     ![](images/newquerey.png)
 11. Open the **Setup** file that can be found in the **C:\LabContent\Analytics-Airlift-master\Day 1\05.SQLDW - Loading lab** from visual studio.<br/>
-    <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld8.jpg"/><br/>
+    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/ld8.jpg"/><br/>
     <img src="https://github.com/SpektraSystems/Analytics-Airlift/blob/master/images/ld.jpg"/><br/>
 12. Copy the content of **Setup** script and paste it in new query window.<br/>
      ![](images/query1.png)
