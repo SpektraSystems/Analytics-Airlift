@@ -419,7 +419,7 @@ Now that your user has got all of their data loaded and organized they are tryin
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql28.jpg"/><br/>
     
     ```
-            Hint: In this example, the query plan is optimal. This query could benefit if it was given more memory.  How much memory has been allocated to this query?  How can you use sys.dm_pdw_exec_requests to determine the memory grant? How can you change the memory allocation for a query?
+     Hint: In this example, the query plan is optimal. This query could benefit if it was given more memory.  How much memory has been allocated to this query?  How can you use sys.dm_pdw_exec_requests to determine the memory grant? How can you change the memory allocation for a query?
     ```
 
 ## Discussion
