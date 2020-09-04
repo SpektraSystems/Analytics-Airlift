@@ -418,9 +418,9 @@ Now that your user has got all of their data loaded and organized they are tryin
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql27.jpg"/><br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql28.jpg"/><br/>
     
-          ```
+    ```
             Hint: In this example, the query plan is optimal. This query could benefit if it was given more memory.  How much memory has been allocated to this query?  How can you use sys.dm_pdw_exec_requests to determine the memory grant? How can you change the memory allocation for a query?
-          ```
+    ```
 
 ## Discussion
 In this exercise you will follow the same method to get to step 9. This time we see that the plan is a single step plan - a return operation. From a distributed plan perspective this is ideal because no data movement occurred. We simply were able to run the distributed queries on each distribution and return the results.<br/><br/>
