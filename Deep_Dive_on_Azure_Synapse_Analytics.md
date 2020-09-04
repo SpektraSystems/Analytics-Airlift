@@ -188,10 +188,9 @@ This part requires you to load a new data source to the Azure Data Warehouse ser
 
 1.	Open a PowerShell window in your virtual machine.<br/>
 2.	Change directory to **Query Performance Tuning** in lab content folder using given command:<br/>
-
-         ``
-          cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Prep"
-         ``
+``
+cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Prep"
+``
 
 <br/>
 3.      Run **PrepLab.ps1** script with you Azure Data Warehouse details. This will take 10-15 minutes.<br/>
@@ -203,11 +202,9 @@ This part requires you to load a new data source to the Azure Data Warehouse ser
 
     ![](images/psscript.png)
 4.      Run the following command for changing the PowerShell execution policies for Windows computers.<br/>
-
-       ``
-        Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass
-       ``
-
+``
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass
+``
   <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql2.jpg"/><br/>
     
 5.	Open your **Query Performance Tuning Lab** content folder.<br/>
@@ -225,62 +222,59 @@ Your user comes to you and says “My query is running slow. I’m not sure why,
 2.	Change directory to **Query Performance Tuning lab** content folder.<br/>
 3.	Change directory to **Lab** sub folder.<br/>
 4.	Run **RunExercise.ps1** script with following parameters. This will execute a query on your server and show the result<br/>
-
-          ``
-           .\RunExercise.ps1 -Name Exercise1 -Type Slow
-          ``
-
-   <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql4.jpg"/><br/>
+``
+.\RunExercise.ps1 -Name Exercise1 -Type Slow
+``
+  <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql4.jpg"/><br/>
     
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
     ![](images/tilogin.png)
     
 6.	Check the query execution details with using DMVs.<br/>
 
-         ```
-           SELECT * FROM sys.dm_pdw_exec_requests
-           WHERE [Label] like 'Exercise1 | Slow%' 
-           ORDER BY submit_time DESC
-          ```
-
+    ```
+    SELECT * FROM sys.dm_pdw_exec_requests
+    WHERE [Label] like 'Exercise1 | Slow%' 
+    ORDER BY submit_time DESC
+    ```
+    
 7.	You can use the labels to search for your specific query. Powershell window shows the “Label” that was used during query execution.<br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql5.jpg"/><br/>
 8.	Look for most recent execution of Exercise 1 query (“Running” or “Completed”)<br/>
 9.	Once you’ve identified the problematic query ID for this scenario, take a deeper look into it by using dm_pdw_request_steps:<br/>
 
-        ```
-          SELECT * FROM sys.dm_pdw_request_steps
-          WHERE request_id = 'QID####'
-          ORDER BY step_index
-        ```
+    ```
+     SELECT * FROM sys.dm_pdw_request_steps
+     WHERE request_id = 'QID####'
+     ORDER BY step_index
+    ```
 
 10.	After running these queries, come up with a hypothesis about why the operation may be taking a long time.  What are the longest running operations?  What might they tell you about how the workflow is structured?<br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql6.jpg"/><br/>
     
-```
-Hint: Moving data will typically be one of the most expensive operations within SQL DW.  How is this query moving data and how could it move it more effectively?  See the Appendix for more info about data movement types.<br/>
-Hint: Why is this query moving data?  What is the source of the moved data? 
-Hint: If you’re still stuck, look at your tables in the object explorer (or sys.tables) – what’s different about the table the user is querying?  Can you find it where you expect in the object explorer tree?  Why not?  What type of table is this table?<br/>
-```
+    ```
+     Hint: Moving data will typically be one of the most expensive operations within SQL DW.  How is this query moving data and how could it move it more effectively?  See the Appendix for more info about data movement types.<br/>
+     Hint: Why is this query moving data?  What is the source of the moved data? 
+     Hint: If you’re still stuck, look at your tables in the object explorer (or sys.tables) – what’s different about the table the user is querying?  Can you find it where you expect in the object explorer tree?  Why not?  What type of table is this table?<br/>
+    ```
 
 11.	After you have a firm understanding of this slow scenario, run the same query with Fast optionThis will execute a query on your server and show the result.<br/>
-
-        ``
-        .\RunExercise.ps1 -Name Exercise1 -Type Fast
-        ``
-    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql7.jpg"/><br/>
+``
+.\RunExercise.ps1 -Name Exercise1 -Type Fast
+``
+<img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql7.jpg"/><br/>
     
 12.	Run the following querys and check the results<br/>
 
-         ```
-           SELECT * FROM sys.dm_pdw_exec_requests
-           WHERE [Label] like 'Exercise1 | Fast%' 
-           ORDER BY submit_time DESC
+    ```
+      SELECT * FROM sys.dm_pdw_exec_requests
+      WHERE [Label] like 'Exercise1 | Fast%' 
+      ORDER BY submit_time DESC
 
-           SELECT * FROM sys.dm_pdw_request_steps
-           WHERE request_id = 'QID####'
-           ORDER BY step_index
-         ```
+      SELECT * FROM sys.dm_pdw_request_steps
+      WHERE request_id = 'QID####'
+      ORDER BY step_index
+    ```
 	 
 13.	Compare the results.<br/>
 
@@ -302,12 +296,10 @@ Again, your user comes to you with questions, complaining that they are joining 
 2.	Change directory to Query Performance Tuning lab content folder.<br/>
 3.	Change directory to Lab sub folder.<br/>
 4.	Run “RunExercise.ps1” script with following parameters<br/>
-
-        ``
-	   .\RunExercise.ps1 -Name Exercise2 -Type Slow
-        ``
-	
-    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql10.jpg"/><br/>
+``
+.\RunExercise.ps1 -Name Exercise2 -Type Slow
+``
+  <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql10.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql03.jpg"/><br/>
@@ -322,19 +314,16 @@ It can often help to add additional predicates to the above query to remove some
 10.	Check the steps and determine which one(s) might be the problematic steps.<br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql12.jpg"/><br/>
 11.	Run the same query with Fast option.<br/>
-
-         ``
-           .\RunExercise.ps1 -Name Exercise2 -Type Fast”
-          ``
-	  
-    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql13.jpg"/><br/>
+``
+.\RunExercise.ps1 -Name Exercise2 -Type Fast”
+``
+<img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql13.jpg"/><br/>
 12.	Compare the 2 query execution plans and determine what would be the reason for query slowness.<br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql14.jpg"/><br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql15.jpg"/><br/>
-
-           ``
-              Hint: Look at the tables that are being joined with the query.  Take a look at the table distribution types in the SSMS object explorer.  The icon for each table tells you if the table is hash distributed or round robin distributed?  What occurs when two round robin tables are joined?
-            ``
+  ```
+    Hint: Look at the tables that are being joined with the query.  Take a look at the table distribution types in the SSMS object explorer.  The icon for each table tells you if the table is hash distributed or round robin distributed?  What occurs when two round robin tables are joined?
+  ```
 
 ### Discussion:
 You should have followed the same workflow as you did in exercise 1 up until step 9. In Step 9 we introduce some helpful additions to the query to filter out some of the SQL OnOperations that are not helpful for troubleshooting. This makes request_steps easier to read.<br/><br/>
@@ -349,12 +338,10 @@ Again, your user comes to you with questions, saying “I’ve just loaded my da
 2.	Change directory to Query Performance Tuning lab content folder.<br/>
 3.	Change directory to Lab sub folder.<br/>
 4.  Run “RunExercise.ps1” script with following parameters<br/>
-
-         ``
-          .\RunExercise.ps1 -Name Exercise3 -Type Slow
-          ``
-	  
-    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql16.jpg"/><br/>
+``
+.\RunExercise.ps1 -Name Exercise3 -Type Slow
+``  
+<img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql16.jpg"/><br/>
 5.	Open Query editor of SQL Data Warehouse in Azure Portal.<br/>
 6.	Check the query execution details with using DMVs.<br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql05.jpg"/><br/>
