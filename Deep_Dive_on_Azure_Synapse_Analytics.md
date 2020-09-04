@@ -366,12 +366,10 @@ Again, your user comes to you with questions, saying “I’ve just loaded my da
 10.	Check the steps and determine which one(s) might be the problematic steps.<br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql18.jpg"/><br/>
 11.	Run the same query with Fast option.<br/>
-
-         ``
-           .\RunExercise.ps1 -Name Exercise3 -Type Fast
-         ``
-	 
-    <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql19.jpg"/><br/>
+``
+.\RunExercise.ps1 -Name Exercise3 -Type Fast
+``
+ <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql19.jpg"/><br/>
 12.	Compare the 2 query execution plans and determine what would be the reason for query slowness.<br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql21.jpg"/><br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql22.jpg"/><br/>
