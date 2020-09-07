@@ -208,7 +208,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass
   <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql2.jpg"/><br/>
     
 5.	Open your **Query Performance Tuning Lab** content folder.<br/>
-6.	Change directory to **C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Lab>** sub folder.<br/>
+6.	Change directory to **C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Lab** sub folder.<br/>
 7.	Edit “RunExercise.ps1” script.<br/>
 8.	Replace **<your_server>** with your **server** name. (Without database.windows.net)<br/>
     <img src="https://raw.githubusercontent.com/SpektraSystems/Analytics-Airlift/master/images/sql01.jpg"/><br/>
