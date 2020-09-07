@@ -198,7 +198,10 @@ cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Pre
 * Password: **Password.1!!**
 
     ![](images/psscript.png)
+
+<br/>
 4.      Run the following command for changing the PowerShell execution policies for Windows computers.<br/>
+
 ``
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass
 ``
