@@ -115,15 +115,16 @@ a. Using the following script to create an external table called Aircraft_IMPORT
        LOCATION = 'aircraft'
       )
     ```
+    
 b. Use the following **CTAS** script to create the table and load data.<br/>
 
-    ```
-      Note:
+  ```  
+  Note:
         * 	Make sure that you select * From Aircraft_IMPORT  you just created.
         * 	Run the following script to update Statstics<br/>
         * 	Auto update statistics can take care of automatically updating single column stats, but in this case it is multi-column stats
-    ```
-    ```
+    
+    
       CREATE TABLE Dim_Aircraft
       WITH
       (
@@ -134,8 +135,7 @@ b. Use the following **CTAS** script to create the table and load data.<br/>
       CREATE STATISTICS Aircraft_Stat 
       ON 
       Dim_Aircraft (id, type, manufacturer)
-    ```
-    
+```
 3. Remainder code will load the all dimension tables.
 
 ### Part 3 – Create Partitioned Fact Table
