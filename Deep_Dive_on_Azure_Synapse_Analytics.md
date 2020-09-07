@@ -187,23 +187,23 @@ Open the 5 -**LoadWithPartitionSwitch.dsql** file that can be found in the **Lab
 
 This part requires you to load a new data source to the Azure Data Warehouse server created in the previous parts. Please follow below steps to load the sample dataset to your server. The login that you use for running this script should have “Create Login” permission on your server! This script will create multiple versions of customer, orders, lineitem, part, partsupp, supplier, nation and region tables. These tables will be used during your lab. You will also edit the PowerShell script and add your server and database names. This will be used during exercises
 
-1.	Open a PowerShell window in your virtual machine.<br/>
-2.	Change directory to **Query Performance Tuning** in lab content folder using given command:<br/>
+1.	Open a PowerShell window in your virtual machine.
+
+2.	Change directory to **Query Performance Tuning** in lab content folder using given command:
+
 ``
 cd "C:\LabContent\Analytics-Airlift-master\Day 1\07.SQLDW - Query tuning lab\Prep"
 ``
 
-<br/>
 3.      Run **PrepLab.ps1** script with you Azure Data Warehouse details. This will take 10-15 minutes.<br/>
 
-* Server name: **tech-immersion-sql-dw-xxxxxx** (replace xxxxxx with your user id)
-* Database name: **tech-immersion-sql-dw**
-* Username: **ti-admin**
-* Password: **Password.1!!**
+           * Server name: **tech-immersion-sql-dw-xxxxxx** (replace xxxxxx with your user id)
+           * Database name: **tech-immersion-sql-dw**
+           * Username: **ti-admin**
+           * Password: **Password.1!!**
 
     ![](images/psscript.png)
 
-<br/>
 4.      Run the following command for changing the PowerShell execution policies for Windows computers.<br/>
 
 ``
